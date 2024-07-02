@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Nupre_API.Entidades;
 
 namespace Nupre_API
 {
@@ -8,5 +9,13 @@ namespace Nupre_API
         {
                 
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            //modelBuilder.Entity<ProfesionalesSolicitudesTran>().HasKey()
+        }
+
+        public DbSet<ProfesionalesSolicitudesTran> profesionalesSolicitudesTrans {  get; set; } 
     }
 }
