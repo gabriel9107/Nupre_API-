@@ -11,7 +11,7 @@ namespace Nupre_API.Endpoints
         {
 
             group.MapGet("/", ObtenerTodos).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(15)).Tag("solicitudes-get")); ;
-            group.MapGet("/{id:int}", ObtenerPorId);
+            group.MapGet("obtenerSolicitudPorId/{id:int}", ObtenerPorId);
             group.MapPost("/", Crear);
             group.MapPut("/{id:int}", Actualizar);
             return group; 

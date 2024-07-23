@@ -13,9 +13,16 @@ namespace Nupre_API
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<ProfesionalesEspecialidadesCata>().HasKey(entity => new
+            {
+                entity.EspecialidadNumero
+            });
+           
             //modelBuilder.Entity<ProfesionalesSolicitudesTran>().HasKey()
         }
 
         public DbSet<ProfesionalesSolicitudesTran> profesionalesSolicitudesTrans {  get; set; } 
+        public DbSet<ProfesionalesEspecialidadesCata> profesionalesEspecialidadesCata { get; set; }
+
     }
 }

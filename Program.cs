@@ -26,6 +26,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IRepositorioProfesionalesSolicitudesTrans, RepositorioProfesionalesSolcitiudesTrans>();
+builder.Services.AddScoped<IRepositorioProfesionalesEspecialidadesCata, RepositorioProfesionalesEspecialidadesCata>();
 //Fin area de servicios 
 var app = builder.Build();
 //inicio del middleware
@@ -39,5 +40,6 @@ app.UseCors();
 app.UseOutputCache();
 app.MapGet("/", () => "Hello World!").CacheOutput(c => c.Expire(TimeSpan.FromSeconds(15)));
 app.MapGroup("/solicitudes").mapSolicitudes();
+app.MapGroup("/profesiones").mapProfesionales();
 
 app.Run();

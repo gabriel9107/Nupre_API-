@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\wip\\Sisalril\\NUPRE\\Nupre_API\\Nupre_API.csproj": {}
+    "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\Nupre_API.csproj": {}
   },
   "projects": {
-    "C:\\wip\\Sisalril\\NUPRE\\Nupre_API\\Nupre_API.csproj": {
+    "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\Nupre_API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\wip\\Sisalril\\NUPRE\\Nupre_API\\Nupre_API.csproj",
+        "projectUniqueName": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\Nupre_API.csproj",
         "projectName": "Nupre_API",
-        "projectPath": "C:\\wip\\Sisalril\\NUPRE\\Nupre_API\\Nupre_API.csproj",
+        "projectPath": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\Nupre_API.csproj",
         "packagesPath": "C:\\Users\\g.montero\\.nuget\\packages\\",
-        "outputPath": "C:\\wip\\Sisalril\\NUPRE\\Nupre_API\\obj\\",
+        "outputPath": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

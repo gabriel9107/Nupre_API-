@@ -22,6 +22,40 @@ namespace Nupre_API.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Nupre_API.Entidades.ProfesionalesEspecialidadesCata", b =>
+                {
+                    b.Property<int>("EspecialidadNumero")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EspecialidadNumero"));
+
+                    b.Property<string>("EspecialidadDescripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<short>("EspecialidadProfesionNumero")
+                        .HasColumnType("smallint");
+
+                    b.Property<byte>("EspecialidadTipoNumero")
+                        .HasColumnType("tinyint");
+
+                    b.Property<string>("RegistroEstado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RegistroFecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("RegistroUsuario")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("EspecialidadNumero");
+
+                    b.ToTable("profesionalesEspecialidadesCata");
+                });
+
             modelBuilder.Entity("Nupre_API.Entidades.ProfesionalesSolicitudesTran", b =>
                 {
                     b.Property<int>("ProfesionalesSolicitudesTranId")
