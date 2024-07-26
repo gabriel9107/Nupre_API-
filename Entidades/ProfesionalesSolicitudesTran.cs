@@ -2,12 +2,11 @@
 {
     public class ProfesionalesSolicitudesTran
     {
-        public int ProfesionalesSolicitudesTranId { get; set; } 
-        public int SolicitudNumero { get; set; }
-
+        
+        public int SolicitudNumero { get; set; } 
         public DateTime SolicitudFecha { get; set; }
 
-        public string ProfesionalDocumento { get; set; } = null!;
+        public string? ProfesionalDocumento { get; set; }
 
         /// <summary>
         /// Es nombre completo (Nombres  y Apellidos) de cada persona registrada en el padrón de ciudadanos de la TSS.
@@ -38,9 +37,9 @@
 
         public string ProfesionalTelefono1 { get; set; } = null!;
 
-        public string ProfesionalTelefono2 { get; set; } = null!;
+        public string? ProfesionalTelefono2 { get; set; } = null!;
 
-        public string ProfesionalTelefono3 { get; set; } = null!;
+        public string? ProfesionalTelefono3 { get; set; } = null!;
 
         public string ProfesionalMail { get; set; } = null!;
 
@@ -48,17 +47,17 @@
 
         public DateTime SolicitudEstadoFecha { get; set; }
 
-        public string SolicitudEstadoNota { get; set; } = null!;
+        public string? SolicitudEstadoNota { get; set; } = null!;
 
         public string SolicitudUsuarioCuenta { get; set; } = null!;
 
-        public string SolicitudActualizarDatos { get; set; } = null!;
+        public string? SolicitudActualizarDatos { get; set; } = null!;
 
-        public int AsociacionRegistroPatronal { get; set; }
+        public int? AsociacionRegistroPatronal { get; set; }
 
-        public byte MotivoNumero { get; set; }
+        public byte? MotivoNumero { get; set; }
 
-        public string SolicitudCertificadoNumero { get; set; } = null!;
+        public string? SolicitudCertificadoNumero { get; set; } = null!;
 
         /// <summary>
         /// Representa el estado en que se encuentra un registro en una tabla (A=Activo, I=Inactivo).

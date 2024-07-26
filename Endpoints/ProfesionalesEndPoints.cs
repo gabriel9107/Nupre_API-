@@ -8,7 +8,7 @@ namespace Nupre_API.Endpoints
     {
         public static RouteGroupBuilder mapProfesionales(this RouteGroupBuilder group)
         {
-            group.MapGet("/", ObtenerTodos).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(15)).Tag("profesiones-get"));
+            group.MapGet("obtenerTodosLasProfesionales/", ObtenerTodos).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(15)).Tag("profesiones-get"));
             group.MapGet("obtenerProfesionesPorTipo/{id:int}", ObtenerPorTipo);
             return group;
         }

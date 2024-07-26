@@ -6,13 +6,15 @@ using Microsoft.EntityFrameworkCore;
 using Nupre_API;
 using Nupre_API.Endpoints;
 using Nupre_API.Entidades;
-using Nupre_API.Migrations;
+
+using Nupre_API.Models;
 using Nupre_API.Repositorio;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddDbContext<ApplicationDbContext>(optciones => optciones.UseSqlServer("name=DefaultConnection"));
+builder.Services.AddDbContext<SimonContext>(optciones => optciones.UseSqlServer("name=SimonConnection"));
 
 
 builder.Services.AddCors(opciones =>
@@ -27,6 +29,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IRepositorioProfesionalesSolicitudesTrans, RepositorioProfesionalesSolcitiudesTrans>();
 builder.Services.AddScoped<IRepositorioProfesionalesEspecialidadesCata, RepositorioProfesionalesEspecialidadesCata>();
+builder.Services.AddScoped<IRepositorioCiudadanoTrans, RepositorioCiudadanoTrans>();
+builder.Services.AddScoped<IRepositorioMunicipioTrans, RepositorioMunicipioTrans>();
+
 //Fin area de servicios 
 var app = builder.Build();
 //inicio del middleware
@@ -41,5 +46,9 @@ app.UseOutputCache();
 app.MapGet("/", () => "Hello World!").CacheOutput(c => c.Expire(TimeSpan.FromSeconds(15)));
 app.MapGroup("/solicitudes").mapSolicitudes();
 app.MapGroup("/profesiones").mapProfesionales();
+app.MapGroup("/utilidades").mapUtilidades();
+app.MapGroup("/ciudadano").mapCiudadano();
+
+
 
 app.Run();

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Nupre_API.Entidades;
-using Nupre_API.Migrations;
+
 
 namespace Nupre_API.Repositorio
 {
@@ -13,7 +13,7 @@ namespace Nupre_API.Repositorio
         }
         public async Task<ProfesionalesSolicitudesTran> ObtenerPorId(int id)
         {
-            return await context.profesionalesSolicitudesTrans.FirstOrDefaultAsync(x => x.ProfesionalesSolicitudesTranId == id);
+            return await context.profesionalesSolicitudesTrans.FirstOrDefaultAsync(x => x.SolicitudNumero == id);
         }
         public Task<List<ProfesionalesSolicitudesTran>> ObtenerTodos()
         {
@@ -23,7 +23,7 @@ namespace Nupre_API.Repositorio
         {
             context.Add(trans); 
             await context.SaveChangesAsync();
-            return trans.ProfesionalesSolicitudesTranId; 
+            return trans.SolicitudNumero; 
         }
         public async Task Actualizar(ProfesionalesSolicitudesTran profesionales)
         {
@@ -32,7 +32,7 @@ namespace Nupre_API.Repositorio
         }
         public async Task<bool> Existe(int id)
         {
-            return await context.profesionalesSolicitudesTrans.AnyAsync( x => x.ProfesionalesSolicitudesTranId == id);   
+            return await context.profesionalesSolicitudesTrans.AnyAsync( x => x.SolicitudNumero == id);   
         }
 
       

@@ -1,5 +1,5 @@
 ﻿using Nupre_API.Entidades;
-using Nupre_API.Migrations;
+
 
 namespace Nupre_API.Repositorio
 {
