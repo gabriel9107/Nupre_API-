@@ -35,13 +35,13 @@ namespace Nupre_API.Endpoints
         }
 
         static async Task<Created<ProfesionalesSolicitudesTran>> Crear(ProfesionalesSolicitudesTran solicitudes, IRepositorioProfesionalesSolicitudesTrans repositorio, IOutputCacheStore outputCacheStore)
-        {
+        {   
 
             var id = await repositorio.Crear(solicitudes);
 
             await outputCacheStore.EvictByTagAsync("solicitudes-get", default);
             return TypedResults.Created($"/{id}", solicitudes);
-        }
+        }        
         static async Task<Results<NoContent, NotFound>> Actualizar(IRepositorioProfesionalesSolicitudesTrans repositorio,
             int id, ProfesionalesSolicitudesTran trans, IOutputCacheStore outputCacheStore)
         {
