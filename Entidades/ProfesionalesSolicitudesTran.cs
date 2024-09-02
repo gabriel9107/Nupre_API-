@@ -13,8 +13,7 @@
         /// </summary>
         public string ProfesionalNombreCompleto { get; set; } = null!;
 
-        /// <summary>
-        /// Número único que representa la nacionalidad de la persona o afiliado.
+        /// <summary> 
         /// </summary>
         public short NacionalidadNumero { get; set; }
 
@@ -37,9 +36,9 @@
 
         public string ProfesionalTelefono1 { get; set; } = null!;
 
-        public string? ProfesionalTelefono2 { get; set; } = null!;
+        public string? ProfesionalTelefono2 { get; set; }
 
-        public string? ProfesionalTelefono3 { get; set; } = null!;
+        public string? ProfesionalTelefono3 { get; set; }
 
         public string ProfesionalMail { get; set; } = null!;
 
@@ -47,11 +46,11 @@
 
         public DateTime SolicitudEstadoFecha { get; set; }
 
-        public string? SolicitudEstadoNota { get; set; } = null!;
+        public string? SolicitudEstadoNota { get; set; } 
 
         public string SolicitudUsuarioCuenta { get; set; } = null!;
 
-        public string? SolicitudActualizarDatos { get; set; } = null!;
+        public string? SolicitudActualizarDatos { get; set; } 
 
         public int? AsociacionRegistroPatronal { get; set; }
 

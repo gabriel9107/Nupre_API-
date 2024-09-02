@@ -16,7 +16,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>(optciones => optciones.UseSqlServer("name=DefaultConnection"));
 builder.Services.AddDbContext<SimonContext>(optciones => optciones.UseSqlServer("name=SimonConnection"));
 
-
+    
 builder.Services.AddCors(opciones =>
 opciones.AddDefaultPolicy(configuacion =>
 {
@@ -31,6 +31,7 @@ builder.Services.AddScoped<IRepositorioProfesionalesSolicitudesTrans, Repositori
 builder.Services.AddScoped<IRepositorioProfesionalesEspecialidadesCata, RepositorioProfesionalesEspecialidadesCata>();
 builder.Services.AddScoped<IRepositorioCiudadanoTrans, RepositorioCiudadanoTrans>();
 builder.Services.AddScoped<IRepositorioMunicipioTrans, RepositorioMunicipioTrans>();
+builder.Services.AddScoped<IRepositorioNacionalidad, RepositorioNacionalidad>();
 
 //Fin area de servicios 
 var app = builder.Build();

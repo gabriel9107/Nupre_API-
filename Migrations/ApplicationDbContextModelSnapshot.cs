@@ -218,6 +218,112 @@ namespace Nupre_API.Migrations
                     b.ToTable("profesionalesSolicitudesTrans");
                 });
 
+            modelBuilder.Entity("Nupre_API.Entidades.Profesionales_Documento_Master", b =>
+                {
+                    b.Property<int>("Documento_Codigo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Documento_Codigo"));
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Registro_Estado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Registro_Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Registro_Usuario")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Documento_Codigo");
+
+                    b.ToTable("Profesionales_Documento_Masters");
+                });
+
+            modelBuilder.Entity("Nupre_API.Entidades.Profesionales_Requerimiento_Cata", b =>
+                {
+                    b.Property<int>("Requerimiento_Numero")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Requerimiento_Numero"));
+
+                    b.Property<int>("Aplica_Numero")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Registro_Estado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Registro_Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Requerimiento_Aplica_Renovacion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Requerimiento_Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Requerimiento_Fecha_Vencimiento")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Requerimiento_Obligatorio")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Requerimiento_Orden")
+                        .HasColumnType("int");
+
+                    b.HasKey("Requerimiento_Numero");
+
+                    b.ToTable("Profesionales_Requerimientos_Cata");
+                });
+
+            modelBuilder.Entity("Nupre_API.Entidades.TSSNacionalidadesCata", b =>
+                {
+                    b.Property<int>("Nacionalidad_Numero")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Nacionalidad_Numero"));
+
+                    b.Property<string>("Nacionalidad_Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nacionalidad_Pais_Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Registro_Estado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Registro_Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Registro_Usuario")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Nacionalidad_Numero");
+
+                    b.ToTable("TSS_Nacionalidades_Cata");
+                });
+
             modelBuilder.Entity("Nupre_API.Entidades.TssCiudadanosMaster", b =>
                 {
                     b.Property<long>("CiudadanoNss")

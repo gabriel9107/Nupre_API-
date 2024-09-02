@@ -11,17 +11,12 @@ namespace Nupre_API.Endpoints
             group.MapGet("obtenerProvincias/", obtenerProvincias).CacheOutput(x => x.Expire(TimeSpan.FromSeconds(15)).Tag("privincias-get"));
             group.MapGet("obtenerMunicipios/", obtenerMunicipio).CacheOutput(x => x.Expire(TimeSpan.FromSeconds(15)).Tag("municipio-get"));
             group.MapGet("obtenerCiudadano/{id}", obtenerCiudadano);
+            group.MapGet("obtenerNacionalidad", obtenerNacionalidad);
 
 
             return group;
         }
-
-
-        //pedientes
-        //1 agregar metodo que busque la nacionalidad, recibiendo el id de nacionalidad 
-
-        
-
+         
         static async Task<Results<Ok<TssCiudadanosMaster>, NotFound>> obtenerCiudadano(IRepositorioCiudadanoTrans respositorio, string id)
         {
             var ciudadanoId = id.ToString();
@@ -44,6 +39,12 @@ namespace Nupre_API.Endpoints
         {
             var provincia = await repositorio.obtenerProvincias();
             return TypedResults.Ok(provincia);
+        }
+
+        static async Task<Ok<List<TSSNacionalidadesCata>>> obtenerNacionalidad( IRepositorioNacionalidad repositorio)
+        {
+            var nacionalidad = await repositorio.obtenerNacionalidad();
+            return TypedResults.Ok(nacionalidad); 
         }
     }
 }

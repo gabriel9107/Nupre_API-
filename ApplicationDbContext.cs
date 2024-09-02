@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Nupre_API.Entidades;
+using System;
 
 namespace Nupre_API
 {
@@ -46,6 +47,19 @@ namespace Nupre_API
             {
                 entity.ProvinciaNumero
             });
+            modelBuilder.Entity<TSSNacionalidadesCata>().HasKey(entity => new
+            {
+                entity.Nacionalidad_Numero
+            });
+
+            modelBuilder.Entity<Profesionales_Documento_Master>().HasKey(entidad => new
+            {
+                entidad.Documento_Codigo
+            });
+            modelBuilder.Entity<Profesionales_Requerimiento_Cata>().HasKey(entity => new
+            {
+                entity.Requerimiento_Numero
+            });
 
             //modelBuilder.Entity<ProfesionalesSolicitudesTran>().HasKey()
         }
@@ -58,6 +72,10 @@ namespace Nupre_API
         public DbSet<ComunesMunicipiosCatum> Comunes_Municipios_Cata { get; set; }
         public DbSet<ComunesProvinciasCatum> Comunes_Provincias_Cata { get; set; }
 
+        public DbSet<TSSNacionalidadesCata> TSS_Nacionalidades_Cata { get; set; }
+
+        public DbSet<Profesionales_Documento_Master> Profesionales_Documento_Masters { get; set; }
+        public DbSet<Profesionales_Requerimiento_Cata> Profesionales_Requerimientos_Cata { get; set; }
 
 
 
