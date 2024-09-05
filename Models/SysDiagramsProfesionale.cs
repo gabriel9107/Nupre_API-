@@ -13,5 +13,5 @@ public partial class SysDiagramsProfesionale
 
     public int? Version { get; set; }
 
-    public byte[]? Definition { get; set; }
+    public byte? Definition { get; set; }
 }

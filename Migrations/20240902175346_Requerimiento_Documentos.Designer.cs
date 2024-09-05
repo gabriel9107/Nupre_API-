@@ -12,6 +12,7 @@ using Nupre_API;
 namespace Nupre_API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
+
     [Migration("20240902175346_Requerimiento_Documentos")]
     partial class Requerimiento_Documentos
     {

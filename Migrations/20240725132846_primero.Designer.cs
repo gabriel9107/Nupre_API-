@@ -12,6 +12,7 @@ using Nupre_API;
 namespace Nupre_API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
+
     [Migration("20240725132846_primero")]
     partial class primero
     {

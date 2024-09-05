@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.OutputCaching;
+using Nupre_API.DTOs;
 using Nupre_API.Entidades;
 using Nupre_API.Repositorio;
 
@@ -24,6 +25,14 @@ namespace Nupre_API.Endpoints
 
         }
 
+
+
+        //static async Task<Results<Ok<DetalleSolicitudDTO>, NotFound>> obtenerDetalleSolicitud(IRepositorioProfesionalesSolicitudesTrans repositorio, int solicitudNumero)
+        //{
+
+
+        //}
+
         static async Task<Results<Ok<ProfesionalesSolicitudesTran>, NotFound>> ObtenerPorId(IRepositorioProfesionalesSolicitudesTrans repositorio, int id)
         {
             var profesionales = await repositorio.ObtenerPorId(id);
@@ -35,7 +44,18 @@ namespace Nupre_API.Endpoints
         }
 
         static async Task<Created<ProfesionalesSolicitudesTran>> Crear(ProfesionalesSolicitudesTran solicitudes, IRepositorioProfesionalesSolicitudesTrans repositorio, IOutputCacheStore outputCacheStore)
-        {   
+        {
+
+            //Completar datos para prueba 
+            solicitudes.RegistroFecha = new DateTime(2022, 1, 1);
+            solicitudes.RegistroEstado = "A";
+            solicitudes.RegistroUsuario = "g.montero";
+            solicitudes.SolicitudUsuarioCuenta = "g.montero";
+            solicitudes.SolicitudEstadoNumero = 1;
+            solicitudes.SolicitudEstadoFecha = new DateTime(2022, 1, 1); ;
+
+
+
 
             var id = await repositorio.Crear(solicitudes);
 
