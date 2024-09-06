@@ -95,36 +95,36 @@ namespace Nupre_API.Migrations
 
             modelBuilder.Entity("Nupre_API.Entidades.ProfesionalesEspecialidadesCata", b =>
                 {
-                    b.Property<int>("EspecialidadNumero")
+                    b.Property<int>("Especialidad_Numero")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EspecialidadNumero"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Especialidad_Numero"));
 
-                    b.Property<string>("EspecialidadDescripcion")
+                    b.Property<string>("Especialidad_Descripcion")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<short>("EspecialidadProfesionNumero")
+                    b.Property<short>("Especialidad_Profesion_Numero")
                         .HasColumnType("smallint");
 
-                    b.Property<byte>("EspecialidadTipoNumero")
+                    b.Property<byte>("Especialidad_Tipo_Numero")
                         .HasColumnType("tinyint");
 
-                    b.Property<string>("RegistroEstado")
+                    b.Property<string>("Registro_Estado")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("RegistroFecha")
+                    b.Property<DateTime>("Registro_Fecha")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("RegistroUsuario")
+                    b.Property<string>("Registro_Usuario")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("EspecialidadNumero");
+                    b.HasKey("Especialidad_Numero");
 
-                    b.ToTable("profesionalesEspecialidadesCata");
+                    b.ToTable("Profesionales_Especialidades_Cata");
                 });
 
             modelBuilder.Entity("Nupre_API.Entidades.ProfesionalesSolicitudesTran", b =>
@@ -248,6 +248,38 @@ namespace Nupre_API.Migrations
                     b.HasKey("Documento_Codigo");
 
                     b.ToTable("Profesionales_Documento_Masters");
+                });
+
+            modelBuilder.Entity("Nupre_API.Entidades.Profesionales_Especialidades_Tipos_Cata", b =>
+                {
+                    b.Property<int>("Especialidad_Tipo_Numero")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Especialidad_Tipo_Numero"));
+
+                    b.Property<string>("Especialidad_Tipo_Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Especialidad_Tipo_Explicacion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Registro_Estado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Registro_Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Registro_Usuario")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Especialidad_Tipo_Numero");
+
+                    b.ToTable("Profesionales_Especialidades_Tipos_Cata");
                 });
 
             modelBuilder.Entity("Nupre_API.Entidades.Profesionales_Requerimiento_Cata", b =>

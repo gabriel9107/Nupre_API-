@@ -8,5 +8,6 @@ namespace Nupre_API.Repositorio
         Task<ProfesionalesEspecialidadesCata> ObtenerPorId(int id);
         Task<List<ProfesionalesEspecialidadesCata>> ObtenerPorTipo(int id);
         Task<List<ProfesionalesEspecialidadesCata>> ObtenerTodos();
+        Task<List<Profesionales_Especialidades_Tipos_Cata>> ObtenerTipoProfesiones();
     }
 }

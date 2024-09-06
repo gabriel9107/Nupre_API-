@@ -24,7 +24,7 @@ namespace Nupre_API
             });
             modelBuilder.Entity<ProfesionalesEspecialidadesCata>().HasKey(entity => new
             {
-                entity.EspecialidadNumero
+                entity.Especialidad_Numero
             });
             modelBuilder.Entity<TssCiudadanosMaster>().HasKey(entity => new
             {
@@ -66,7 +66,7 @@ namespace Nupre_API
             });
 
 
-            modelBuilder.Entity<Profesionales_Especialidades_Cata>().HasKey(entity => new
+            modelBuilder.Entity<ProfesionalesEspecialidadesCata>().HasKey(entity => new
             {
                 entity.Especialidad_Numero
             });
@@ -76,7 +76,7 @@ namespace Nupre_API
         }
 
         public DbSet<ProfesionalesSolicitudesTran> profesionalesSolicitudesTrans { get; set; }
-        public DbSet<ProfesionalesEspecialidadesCata> profesionalesEspecialidadesCata { get; set; }
+        
         public DbSet<TssCiudadanosMaster> TSS_Ciudadanos_Master    { get; set; }
         public DbSet<TssTrabajadoresTran> TSS_Trabajadores_Trans   { get; set; }
         public DbSet<TssEmpleadoresMaster> TSS_Empleadores_Master  { get; set; }
@@ -89,7 +89,7 @@ namespace Nupre_API
         public DbSet<Profesionales_Requerimiento_Cata> Profesionales_Requerimientos_Cata { get; set; }
 
         public DbSet<Profesionales_Especialidades_Tipos_Cata> Profesionales_Especialidades_Tipos_Cata { get; set; }
-        public DbSet<Profesionales_Especialidades_Cata> Profesionales_Especialidades_Cata { get; set; }
+        public DbSet<ProfesionalesEspecialidadesCata> Profesionales_Especialidades_Cata { get; set; }
 
 
 

@@ -8,8 +8,9 @@ namespace Nupre_API.Endpoints
     {
         public static RouteGroupBuilder mapProfesionales(this RouteGroupBuilder group)
         {
-            group.MapGet("obtenerTodosLasProfesionales/", ObtenerTodos).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(15)).Tag("profesiones-get"));
+            group.MapGet("obtenerTodasLasProfesiones/", ObtenerTodos).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(15)).Tag("profesiones-get"));
             group.MapGet("obtenerProfesionesPorTipo/{id:int}", ObtenerPorTipo);
+            group.MapGet("obtenerTipoProfesiones", ObtenerTipoProfesiones);
             return group;
         }
 
@@ -26,6 +27,14 @@ namespace Nupre_API.Endpoints
 
             return TypedResults.Ok(profesionales);
         }
+
+        static async Task<Ok<List<Profesionales_Especialidades_Tipos_Cata>>> ObtenerTipoProfesiones(IRepositorioProfesionalesEspecialidadesCata repositirio)
+        {
+            var tipo = await repositirio.ObtenerTipoProfesiones(); 
+            return TypedResults.Ok(tipo);
+
+        }
+        
 
     }
 }

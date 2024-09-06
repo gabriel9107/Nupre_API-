@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Nupre_API.Entidades;
+//using Nupre_API.Models;
 using Nupre_API.Repositorio;
 
 namespace Nupre_API.Endpoints
@@ -12,6 +13,7 @@ namespace Nupre_API.Endpoints
             group.MapGet("obtenerMunicipios/", obtenerMunicipio).CacheOutput(x => x.Expire(TimeSpan.FromSeconds(15)).Tag("municipio-get"));
             group.MapGet("obtenerCiudadano/{id}", obtenerCiudadano);
             group.MapGet("obtenerNacionalidad", obtenerNacionalidad);
+            group.MapGet("obtenerCatalogoProfesionales/{id}", obtenerCatalogoDeEspecilidades);
 
 
             return group;
@@ -29,13 +31,13 @@ namespace Nupre_API.Endpoints
             return TypedResults.Ok(ciudadano);
 
         }
-        static async Task<Ok<List<ComunesMunicipiosCatum>>> obtenerMunicipio(IRepositorioMunicipioTrans repositorio)
+        static async Task<Ok<List<Entidades.ComunesMunicipiosCatum>>> obtenerMunicipio(IRepositorioMunicipioTrans repositorio)
         {
             var municipios = await repositorio.obtenerMunicipios();
             return TypedResults.Ok(municipios);
         }
 
-        static async Task<Ok<List<ComunesProvinciasCatum>>> obtenerProvincias(IRepositorioMunicipioTrans repositorio)
+        static async Task<Ok<List<Entidades.ComunesProvinciasCatum>>> obtenerProvincias(IRepositorioMunicipioTrans repositorio)
         {
             var provincia = await repositorio.obtenerProvincias();
             return TypedResults.Ok(provincia);
@@ -46,5 +48,12 @@ namespace Nupre_API.Endpoints
             var nacionalidad = await repositorio.obtenerNacionalidad();
             return TypedResults.Ok(nacionalidad); 
         }
+
+        static async Task<Ok<List<ProfesionalesEspecialidadesCata>>> obtenerCatalogoDeEspecilidades(IRepositorioProfesionalesEspecialidadesCata repositorio, int id)
+        {
+            var catalogo = await repositorio.ObtenerPorTipo(id);
+            return TypedResults.Ok(catalogo);
+        }
+
     }
 }

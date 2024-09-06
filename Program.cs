@@ -33,6 +33,7 @@ builder.Services.AddScoped<IRepositorioCiudadanoTrans, RepositorioCiudadanoTrans
 builder.Services.AddScoped<IRepositorioMunicipioTrans, RepositorioMunicipioTrans>();
 builder.Services.AddScoped<IRepositorioNacionalidad, RepositorioNacionalidad>();
 
+
 //Fin area de servicios 
 var app = builder.Build();
 //inicio del middleware
