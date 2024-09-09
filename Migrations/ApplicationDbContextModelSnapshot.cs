@@ -282,6 +282,47 @@ namespace Nupre_API.Migrations
                     b.ToTable("Profesionales_Especialidades_Tipos_Cata");
                 });
 
+            modelBuilder.Entity("Nupre_API.Entidades.Profesionales_Estados_Cata", b =>
+                {
+                    b.Property<byte>("Profesional_Estado_Numero")
+                        .HasColumnType("tinyint");
+
+                    b.Property<string>("Profesional_EstadoDescripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Profesional_Estado_Explicacion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Profesional_Estado_Mensaje")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Profesional_Estado_Nota")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Profesional_Estado_Pendiente")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Registro_Estado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Registro_Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Registro_Usuario")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Profesional_Estado_Numero");
+
+                    b.ToTable("profesionales_Estados_Catas");
+                });
+
             modelBuilder.Entity("Nupre_API.Entidades.Profesionales_Requerimiento_Cata", b =>
                 {
                     b.Property<int>("Requerimiento_Numero")

@@ -14,6 +14,8 @@ namespace Nupre_API.Endpoints
             group.MapGet("obtenerCiudadano/{id}", obtenerCiudadano);
             group.MapGet("obtenerNacionalidad", obtenerNacionalidad);
             group.MapGet("obtenerCatalogoProfesionales/{id}", obtenerCatalogoDeEspecilidades);
+            group.MapGet("obtenerListadoEstado", obtenerListadoEstado);
+            group.MapGet("ObtenerDescripcionEstado/{idEstado}", ObtenerDescripcionEstado);
 
 
             return group;
@@ -53,6 +55,21 @@ namespace Nupre_API.Endpoints
         {
             var catalogo = await repositorio.ObtenerPorTipo(id);
             return TypedResults.Ok(catalogo);
+        }
+
+        static async Task<Ok<List<Profesionales_Estados_Cata>>> obtenerListadoEstado(IRepositorioEstadoCata repositorio)
+        {
+            var catalogo = await repositorio.obtenerEstados();
+            return TypedResults.Ok(catalogo);
+        }
+        /// <summary>
+        /// Regresa la descripcion del estado en que se cuenta la solicitud.... 
+        /// El mismo sera utilizado en la lista, o en el detalle de la solicitud. 
+        /// </summary>
+        static async Task<Ok<Profesionales_Estados_Cata>> ObtenerDescripcionEstado(IRepositorioEstadoCata repositorio, int idEstado)
+        {
+           var detalleEstado = await repositorio.obtenerEstadosPorId(idEstado);
+            return TypedResults.Ok(detalleEstado); 
         }
 
     }

@@ -32,6 +32,7 @@ builder.Services.AddScoped<IRepositorioProfesionalesEspecialidadesCata, Reposito
 builder.Services.AddScoped<IRepositorioCiudadanoTrans, RepositorioCiudadanoTrans>();
 builder.Services.AddScoped<IRepositorioMunicipioTrans, RepositorioMunicipioTrans>();
 builder.Services.AddScoped<IRepositorioNacionalidad, RepositorioNacionalidad>();
+builder.Services.AddScoped<IRepositorioEstadoCata, RepositorioEstadoCata>();
 
 
 //Fin area de servicios 

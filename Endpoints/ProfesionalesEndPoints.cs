@@ -14,6 +14,7 @@ namespace Nupre_API.Endpoints
             return group;
         }
 
+        
         static async Task<Ok<List<ProfesionalesEspecialidadesCata>>> ObtenerTodos(IRepositorioProfesionalesEspecialidadesCata repositorio)
         {
             var profesionales = await repositorio.ObtenerTodos();
