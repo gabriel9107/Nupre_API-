@@ -150,3 +150,5 @@ C:\w\Sisalril\NUPRE\Nupre_API\obj\Debug\net7.0\refint\Nupre_API.dll
 C:\w\Sisalril\NUPRE\Nupre_API\obj\Debug\net7.0\Nupre_API.pdb
 C:\w\Sisalril\NUPRE\Nupre_API\obj\Debug\net7.0\Nupre_API.genruntimeconfig.cache
 C:\w\Sisalril\NUPRE\Nupre_API\obj\Debug\net7.0\ref\Nupre_API.dll
+C:\w\Sisalril\NUPRE\Nupre_API\bin\Debug\net7.0\AutoMapper.dll
+C:\w\Sisalril\NUPRE\Nupre_API\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

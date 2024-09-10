@@ -365,6 +365,57 @@ namespace Nupre_API.Migrations
                     b.ToTable("Profesionales_Requerimientos_Cata");
                 });
 
+            modelBuilder.Entity("Nupre_API.Entidades.Profesionales_Solicitudes_Especialidades_Trans", b =>
+                {
+                    b.Property<int>("Solicitud_Numero")
+                        .HasColumnType("int");
+
+                    b.Property<short>("Especialidad_Numero")
+                        .HasColumnType("smallint");
+
+                    b.Property<short?>("Disposicion_Numero")
+                        .HasColumnType("smallint");
+
+                    b.Property<string>("Documento_Codigo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Especialidad_Estado_Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Especialidad_Estado_Nota")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte>("Especialidad_Estado_Numero")
+                        .HasColumnType("tinyint");
+
+                    b.Property<int>("Especialidad_Periodo")
+                        .HasColumnType("int");
+
+                    b.Property<byte?>("Motivo_Numero")
+                        .HasColumnType("tinyint");
+
+                    b.Property<string>("Registro_Estado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Registro_Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Registro_Usuario")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Solicitud_Numero_NavigationSolicitudNumero")
+                        .HasColumnType("int");
+
+                    b.HasKey("Solicitud_Numero", "Especialidad_Numero");
+
+                    b.HasIndex("Solicitud_Numero_NavigationSolicitudNumero");
+
+                    b.ToTable("Profesionales_Solicitudes_Especialidades_Trans");
+                });
+
             modelBuilder.Entity("Nupre_API.Entidades.TSSNacionalidadesCata", b =>
                 {
                     b.Property<int>("Nacionalidad_Numero")
@@ -684,6 +735,17 @@ namespace Nupre_API.Migrations
                     b.HasOne("Nupre_API.Entidades.ComunesProvinciasCatum", null)
                         .WithMany("ComunesMunicipiosCata")
                         .HasForeignKey("ComunesProvinciasCatumProvinciaNumero");
+                });
+
+            modelBuilder.Entity("Nupre_API.Entidades.Profesionales_Solicitudes_Especialidades_Trans", b =>
+                {
+                    b.HasOne("Nupre_API.Entidades.ProfesionalesSolicitudesTran", "Solicitud_Numero_Navigation")
+                        .WithMany()
+                        .HasForeignKey("Solicitud_Numero_NavigationSolicitudNumero")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Solicitud_Numero_Navigation");
                 });
 
             modelBuilder.Entity("Nupre_API.Entidades.TssTrabajadoresTran", b =>

@@ -9,6 +9,7 @@ using Nupre_API.Entidades;
 
 using Nupre_API.Models;
 using Nupre_API.Repositorio;
+using Nupre_API.Servicios;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,7 +34,15 @@ builder.Services.AddScoped<IRepositorioCiudadanoTrans, RepositorioCiudadanoTrans
 builder.Services.AddScoped<IRepositorioMunicipioTrans, RepositorioMunicipioTrans>();
 builder.Services.AddScoped<IRepositorioNacionalidad, RepositorioNacionalidad>();
 builder.Services.AddScoped<IRepositorioEstadoCata, RepositorioEstadoCata>();
+builder.Services.AddScoped<IRepositorioProfesionalesEspecialidadesTrans, RepositorioProfesionalesEspecialidadesTrans>();
 
+
+builder.Services.AddScoped<IAlmacenadorArchivos, AlmacenadorArchivosLocal>();
+builder.Services.AddHttpContextAccessor();
+
+
+
+builder.Services.AddAutoMapper(typeof(Program));
 
 //Fin area de servicios 
 var app = builder.Build();
@@ -43,11 +52,15 @@ if (builder.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseStaticFiles();
+
 app.UseCors();
 //Agregamos el uso del cache del servidor para eliminar las llamadas repetidas a la base de datos 
 app.UseOutputCache();
 app.MapGet("/", () => "Hello World!").CacheOutput(c => c.Expire(TimeSpan.FromSeconds(15)));
 app.MapGroup("/solicitudes").mapSolicitudes();
+app.MapGroup("/titulacion").mapProfesionalesEspecialidades();
 app.MapGroup("/profesiones").mapProfesionales();
 app.MapGroup("/utilidades").mapUtilidades();
 app.MapGroup("/ciudadano").mapCiudadano();
