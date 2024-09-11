@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "v1EI7uP123UAUvOUT5KREQRgSCiRdhCo/SGhzAhidL0=",
+  "Hash": "jvRIsy0qIO/9FHNQRzfC16IwiqoEioJC7xYfFE81r5E=",
   "Source": "Nupre_API",
   "BasePath": "_content/Nupre_API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Nupre_API\\wwwroot",
+      "Source": "Nupre_API",
+      "ContentRoot": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\",
+      "BasePath": "_content/Nupre_API",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

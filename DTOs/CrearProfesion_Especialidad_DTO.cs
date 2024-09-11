@@ -3,14 +3,22 @@
     public class CrearProfesion_Especialidad_DTO
     {
         public int Solicitud_Numero { get; set; }
- 
+
+        /// <summary>
+        /// Numero de la especialidad médica. 
+        /// </summary>
         public short Especialidad_Numero { get; set; }
 
-        public int Especialidad_Periodo { get; set; }
+        public string Especialidad_Periodo { get; set; }
 
-        public string Documento_Codigo { get; set; } = null!;
+        //public string Documento_Codigo { get; set; } = null!;
 
-        public IFormFile Foto {  get; set; } = null!;
+        //public byte Especialidad_Estado_Numero { get; set; }
+
+        //public DateTime Especialidad_Estado_Fecha { get; set; }
+
+
+        public IFormFile? documento {  get; set; } = null!;
         
 
         //public byte Especialidad_Estado_Numero { get; set; }

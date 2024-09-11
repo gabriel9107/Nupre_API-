@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.OutputCaching;
+using Microsoft.AspNetCore.Mvc;
 using Nupre_API.DTOs;
 using Nupre_API.Entidades;
 using Nupre_API.Repositorio;
 using Nupre_API.Servicios;
+using Microsoft.AspNetCore.Builder;
 
 namespace Nupre_API.Endpoints
 {
@@ -24,15 +26,25 @@ namespace Nupre_API.Endpoints
         //    return TypedResults.Created($"/{id}", solicitud);
         //}
 
-        public static async Task<Created<CrearProfesion_Especialidad_DTO>> Crear(CrearProfesion_Especialidad_DTO solicitud, IRepositorioProfesionalesEspecialidadesTrans repositorio, 
+        public static async Task<Created<CrearProfesion_Especialidad_DTO>> Crear([FromForm] CrearProfesion_Especialidad_DTO solicitud, IRepositorioProfesionalesEspecialidadesTrans repositorio, 
             IMapper mapper,IAlmacenadorArchivos almacenadorArchivos )
         {
-            var titulacion = mapper.Map<Profesionales_Solicitudes_Especialidades_Trans>(solicitud);
 
-            if(solicitud.Documento_Codigo is not null)
+            //if (solicitud.Tipo == 1)
+            //{
+
+
+            //}
+
+            var titulacion = mapper.Map<Profesionales_Solicitudes_Especialidades_Trans>(solicitud);
+            //if(titulacion)
+
+
+
+            if(solicitud.documento is not null)
             {
-                var url = await almacenadorArchivos.Almacenar(contenedor, solicitud.Foto );
-                solicitud.Documento_Codigo = url; 
+                var url = await almacenadorArchivos.Almacenar(contenedor, solicitud.documento );
+                //solicitud.documento = url; 
             
             }
 

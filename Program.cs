@@ -42,6 +42,7 @@ builder.Services.AddHttpContextAccessor();
 
 
 
+
 builder.Services.AddAutoMapper(typeof(Program));
 
 //Fin area de servicios 
