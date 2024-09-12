@@ -15,7 +15,8 @@ namespace Nupre_API.Endpoints
         private static readonly string contenedor = "Titulacion_Especialidades";
         public static RouteGroupBuilder mapProfesionalesEspecialidades(this RouteGroupBuilder group)
         {
-            group.MapPost("/", Crear);
+            group.MapPost("guardarTitulacion", Crear);
+            group.MapGet("listadoTitulacion/{solicitud_numero}", obtenerListadoPorSolicitud);
             return group;
         }
 
@@ -26,7 +27,7 @@ namespace Nupre_API.Endpoints
         //    return TypedResults.Created($"/{id}", solicitud);
         //}
 
-        public static async Task<Created<CrearProfesion_Especialidad_DTO>> Crear([FromForm] CrearProfesion_Especialidad_DTO solicitud, IRepositorioProfesionalesEspecialidadesTrans repositorio, 
+        public static async Task<Created<CrearProfesion_Especialidad_DTO>> Crear( CrearProfesion_Especialidad_DTO solicitud, IRepositorioProfesionalesEspecialidadesTrans repositorio, 
             IMapper mapper,IAlmacenadorArchivos almacenadorArchivos )
         {
 
@@ -36,28 +37,31 @@ namespace Nupre_API.Endpoints
 
             //}
 
-            var titulacion = mapper.Map<Profesionales_Solicitudes_Especialidades_Trans>(solicitud);
+            //var titulacion = mapper.Map<Profesionales_Solicitudes_Especialidades_Trans>(solicitud);
             //if(titulacion)
 
 
-
-            if(solicitud.documento is not null)
-            {
-                var url = await almacenadorArchivos.Almacenar(contenedor, solicitud.documento );
-                //solicitud.documento = url; 
-            
-            }
-
-            //var titulacion = new Profesionales_Solicitudes_Especialidades_Trans
+            //Pendeinte de arreglar
+            //if(solicitud.documento is not null)
             //{
+            //    var url = await almacenadorArchivos.Almacenar(contenedor, solicitud.documento );
+            //    //solicitud.documento = url; 
 
-            //    Solicitud_Numero = solicitud.Solicitud_Id,
-            //    Especialidad_Numero = (short)solicitud.Especialidad_Id,
-            //    Documento_Codigo = solicitud.Nombre_Documento,
-            //    Registro_Usuario = "g.montero",
-            //    Registro_Estado = "A", 
-                 
-            //};
+            //}
+
+            
+
+            var titulacion = new Profesionales_Solicitudes_Especialidades_Trans
+            {
+
+                Solicitud_Numero = solicitud.Solicitud_Numero,
+                Especialidad_Numero = (short)solicitud.Especialidad_Numero,
+                Documento_Codigo = solicitud.Documento_Codigo,
+                Registro_Usuario = "g.montero",
+                Registro_Estado = "A",
+                Especialidad_Estado_Numero = 1, 
+
+            };
 
 
             var id = await repositorio.Crear(titulacion);
@@ -77,6 +81,14 @@ namespace Nupre_API.Endpoints
         }
 
 
+        public static async Task<Ok<List<Profesionales_Solicitudes_Especialidades_Trans>>> obtenerListadoPorSolicitud(IRepositorioProfesionalesEspecialidadesTrans repositorio, int solicitud_numero)
+        {
+
+            var titulos = await repositorio.obtenerTitulacionPorSolicitud(solicitud_numero);
+            
+            return TypedResults.Ok(titulos);
+        }
+         
 
 
     }

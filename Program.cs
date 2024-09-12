@@ -39,6 +39,10 @@ builder.Services.AddScoped<IRepositorioProfesionalesEspecialidadesTrans, Reposit
 
 builder.Services.AddScoped<IAlmacenadorArchivos, AlmacenadorArchivosLocal>();
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddAntiforgery();
+
+
+
 
 
 
@@ -54,7 +58,12 @@ if (builder.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
+
+
 app.UseStaticFiles();
+
+
 
 app.UseCors();
 //Agregamos el uso del cache del servidor para eliminar las llamadas repetidas a la base de datos 
@@ -68,4 +77,6 @@ app.MapGroup("/ciudadano").mapCiudadano();
 
 
 
+
 app.Run();
+ 

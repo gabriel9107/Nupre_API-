@@ -22,6 +22,10 @@ namespace Nupre_API.Repositorio
 
         public async Task<int> Crear(Profesionales_Solicitudes_Especialidades_Trans trans)
         {
+
+            byte Especialidad_Tipo_Numero = await context.Profesionales_Especialidades_Cata.Where(x => x.Especialidad_Numero == trans.Especialidad_Numero).Select(s => s.Especialidad_Tipo_Numero).FirstOrDefaultAsync();
+            trans.Especialidad_Tipo_Numero = Especialidad_Tipo_Numero; 
+
             context.Add(trans);
             await context.SaveChangesAsync();
             return trans.Solicitud_Numero; 

@@ -11,6 +11,8 @@ namespace Nupre_API.Entidades
         /// </summary>
         public short Especialidad_Numero { get; set; }
 
+        public byte Especialidad_Tipo_Numero { get; set; } 
+
         public int Especialidad_Periodo { get; set; }
 
         public string Documento_Codigo { get; set; } = null!;
@@ -40,7 +42,7 @@ namespace Nupre_API.Entidades
         /// </summary>
         public DateTime Registro_Fecha { get; set; }
 
-        public virtual ProfesionalesSolicitudesTran Solicitud_Numero_Navigation { get; set; } = null!;
+        //public virtual ProfesionalesSolicitudesTran Solicitud_Numero_Navigation { get; set; } = null!;
         //public virtual ProfesionalesSolicitudesTran SolicitudNumeroNavigation { get; set; } = null!;
         //public virtual ProfesionalesEspecialidadesEstadosCatum EspecialidadEstadoNumeroNavigation { get; set; } = null!;
 

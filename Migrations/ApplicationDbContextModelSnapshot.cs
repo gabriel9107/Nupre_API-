@@ -392,6 +392,9 @@ namespace Nupre_API.Migrations
                     b.Property<int>("Especialidad_Periodo")
                         .HasColumnType("int");
 
+                    b.Property<byte>("Especialidad_Tipo_Numero")
+                        .HasColumnType("tinyint");
+
                     b.Property<byte?>("Motivo_Numero")
                         .HasColumnType("tinyint");
 
@@ -406,12 +409,7 @@ namespace Nupre_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Solicitud_Numero_NavigationSolicitudNumero")
-                        .HasColumnType("int");
-
                     b.HasKey("Solicitud_Numero", "Especialidad_Numero");
-
-                    b.HasIndex("Solicitud_Numero_NavigationSolicitudNumero");
 
                     b.ToTable("Profesionales_Solicitudes_Especialidades_Trans");
                 });
@@ -735,17 +733,6 @@ namespace Nupre_API.Migrations
                     b.HasOne("Nupre_API.Entidades.ComunesProvinciasCatum", null)
                         .WithMany("ComunesMunicipiosCata")
                         .HasForeignKey("ComunesProvinciasCatumProvinciaNumero");
-                });
-
-            modelBuilder.Entity("Nupre_API.Entidades.Profesionales_Solicitudes_Especialidades_Trans", b =>
-                {
-                    b.HasOne("Nupre_API.Entidades.ProfesionalesSolicitudesTran", "Solicitud_Numero_Navigation")
-                        .WithMany()
-                        .HasForeignKey("Solicitud_Numero_NavigationSolicitudNumero")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Solicitud_Numero_Navigation");
                 });
 
             modelBuilder.Entity("Nupre_API.Entidades.TssTrabajadoresTran", b =>

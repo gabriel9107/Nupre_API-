@@ -11,19 +11,21 @@
 
         public string Especialidad_Periodo { get; set; }
 
-        //public string Documento_Codigo { get; set; } = null!;
+        public string? Documento_Codigo { get; set; }
 
-        //public byte Especialidad_Estado_Numero { get; set; }
-
-        //public DateTime Especialidad_Estado_Fecha { get; set; }
-
-
-        public IFormFile? documento {  get; set; } = null!;
         
+        public byte Especialidad_Estado_Numero { get; set; }
 
-        //public byte Especialidad_Estado_Numero { get; set; }
+        public DateTime Especialidad_Estado_Fecha { get; set; }
 
-        //public DateTime Especialidad_Estado_Fecha { get; set; }
+        public short? Disposicion_Numero { get; set; }
+
+        //public IFormFile? documento {  get; set; } = null!;
+
+
+        //
+
+
 
         //public string Especialidad_Estado_Nota { get; set; } = null!;
 
@@ -31,12 +33,12 @@
 
         //public byte Motivo_Numero { get; set; }
 
-       
+
         //public string Registro_Estado { get; set; } = null!;
- 
+
         //public string Registro_Usuario { get; set; } = null!;
 
-         
+
         //public DateTime Registro_Fecha { get; set; }
 
     }
