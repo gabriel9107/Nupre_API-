@@ -409,7 +409,12 @@ namespace Nupre_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("SolicitudNumeroNavigationSolicitudNumero")
+                        .HasColumnType("int");
+
                     b.HasKey("Solicitud_Numero", "Especialidad_Numero");
+
+                    b.HasIndex("SolicitudNumeroNavigationSolicitudNumero");
 
                     b.ToTable("Profesionales_Solicitudes_Especialidades_Trans");
                 });
@@ -733,6 +738,17 @@ namespace Nupre_API.Migrations
                     b.HasOne("Nupre_API.Entidades.ComunesProvinciasCatum", null)
                         .WithMany("ComunesMunicipiosCata")
                         .HasForeignKey("ComunesProvinciasCatumProvinciaNumero");
+                });
+
+            modelBuilder.Entity("Nupre_API.Entidades.Profesionales_Solicitudes_Especialidades_Trans", b =>
+                {
+                    b.HasOne("Nupre_API.Entidades.ProfesionalesSolicitudesTran", "SolicitudNumeroNavigation")
+                        .WithMany()
+                        .HasForeignKey("SolicitudNumeroNavigationSolicitudNumero")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SolicitudNumeroNavigation");
                 });
 
             modelBuilder.Entity("Nupre_API.Entidades.TssTrabajadoresTran", b =>

@@ -42,7 +42,11 @@ namespace Nupre_API.Entidades
         /// </summary>
         public DateTime Registro_Fecha { get; set; }
 
-        //public virtual ProfesionalesSolicitudesTran Solicitud_Numero_Navigation { get; set; } = null!;
+        public virtual ProfesionalesSolicitudesTran SolicitudNumeroNavigation { get; set; } = null!;
+
+        
+        //public virtual ProfesionalesEspecialidadesEstadosCatum EspecialidadEstadoNumeroNavigation { get; set; } = null!;
+
         //public virtual ProfesionalesSolicitudesTran SolicitudNumeroNavigation { get; set; } = null!;
         //public virtual ProfesionalesEspecialidadesEstadosCatum EspecialidadEstadoNumeroNavigation { get; set; } = null!;
 
