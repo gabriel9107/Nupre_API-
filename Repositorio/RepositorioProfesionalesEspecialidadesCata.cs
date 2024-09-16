@@ -14,11 +14,11 @@ namespace Nupre_API.Repositorio
 
         }
 
-        public async Task<ProfesionalesEspecialidadesCata> ObtenerPorId(int id)
+        public async Task<Profesionales_Especialidades_Cata> ObtenerPorId(int id)
         {
             return await context.Profesionales_Especialidades_Cata.Where(a => a.Registro_Estado =="A").FirstOrDefaultAsync(x => x.Especialidad_Numero == id);
         }
-        public Task<List<ProfesionalesEspecialidadesCata>> ObtenerTodos()
+        public Task<List<Profesionales_Especialidades_Cata>> ObtenerTodos()
         {
             return context.Profesionales_Especialidades_Cata.ToListAsync();
         }
@@ -28,7 +28,7 @@ namespace Nupre_API.Repositorio
             return context.Profesionales_Especialidades_Tipos_Cata.Where(p => p.Registro_Estado =="A").ToListAsync();
         }
 
-        public Task<List<ProfesionalesEspecialidadesCata>> ObtenerPorTipo(int id)
+        public Task<List<Profesionales_Especialidades_Cata>> ObtenerPorTipo(int id)
         {
             return context.Profesionales_Especialidades_Cata.Where(x => x.Especialidad_Tipo_Numero == id).ToListAsync();
         }

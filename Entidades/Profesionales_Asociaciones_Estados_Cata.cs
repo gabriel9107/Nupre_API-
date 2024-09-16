@@ -1,6 +1,4 @@
-﻿using Nupre_API.Models;
-
-namespace Nupre_API.Entidades
+﻿namespace Nupre_API.Entidades
 {
     public class Profesionales_Asociaciones_Estados_Cata
     {
@@ -33,8 +31,8 @@ namespace Nupre_API.Entidades
         /// </summary>
         public DateTime RegistroFecha { get; set; }
 
-        public virtual ICollection<Profesionales_Asociaciones_Master> ProfesionalesAsociacionesMasters { get; set; } = new List<ProfesionalesAsociacionesMaster>();
+        public virtual ICollection<Profesionales_Asociaciones_Master> ProfesionalesAsociacionesMasters { get; set; } = new List<Profesionales_Asociaciones_Master>();
 
-        public virtual ICollection<ProfesionalesSolicitudesAsociacionesTran> ProfesionalesSolicitudesAsociacionesTrans { get; set; } = new List<ProfesionalesSolicitudesAsociacionesTran>();
+        public virtual ICollection<Profesionales_Solicitudes_Asociaciones_Tran> ProfesionalesSolicitudesAsociacionesTrans { get; set; } = new List<Profesionales_Solicitudes_Asociaciones_Tran>();
     }
 }

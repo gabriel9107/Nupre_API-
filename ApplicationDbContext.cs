@@ -18,11 +18,11 @@ namespace Nupre_API
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<ProfesionalesSolicitudesTran>().HasKey(entity => new
+            modelBuilder.Entity<Profesionales_Solicitudes_Tran>().HasKey(entity => new
             {
-                entity.SolicitudNumero
+                entity.Solicitud_Numero
             });
-            modelBuilder.Entity<ProfesionalesEspecialidadesCata>().HasKey(entity => new
+            modelBuilder.Entity<Profesionales_Especialidades_Cata>().HasKey(entity => new
             {
                 entity.Especialidad_Numero
             });
@@ -66,7 +66,7 @@ namespace Nupre_API
             });
 
 
-            modelBuilder.Entity<ProfesionalesEspecialidadesCata>().HasKey(entity => new
+            modelBuilder.Entity<Profesionales_Especialidades_Cata>().HasKey(entity => new
             {
                 entity.Especialidad_Numero
             });
@@ -82,7 +82,7 @@ namespace Nupre_API
             //modelBuilder.Entity<ProfesionalesSolicitudesTran>().HasKey()
         }
 
-        public DbSet<ProfesionalesSolicitudesTran> profesionalesSolicitudesTrans { get; set; }
+        public DbSet<Profesionales_Solicitudes_Tran> Profesionales_Solicitudes_Trans { get; set; }
         
         public DbSet<TssCiudadanosMaster> TSS_Ciudadanos_Master    { get; set; }
         public DbSet<TssTrabajadoresTran> TSS_Trabajadores_Trans   { get; set; }
@@ -96,7 +96,7 @@ namespace Nupre_API
         public DbSet<Profesionales_Requerimiento_Cata> Profesionales_Requerimientos_Cata { get; set; }
 
         public DbSet<Profesionales_Especialidades_Tipos_Cata> Profesionales_Especialidades_Tipos_Cata { get; set; }
-        public DbSet<ProfesionalesEspecialidadesCata> Profesionales_Especialidades_Cata { get; set; }
+        public DbSet<Profesionales_Especialidades_Cata> Profesionales_Especialidades_Cata { get; set; }
         public DbSet<Profesionales_Solicitudes_Especialidades_Trans> Profesionales_Solicitudes_Especialidades_Trans { get; set; }
 
         public DbSet<Profesionales_Estados_Cata> profesionales_Estados_Catas { get; set; }

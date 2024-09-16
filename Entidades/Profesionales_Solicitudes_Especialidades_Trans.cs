@@ -1,5 +1,4 @@
-﻿using Nupre_API.Models;
-
+﻿ 
 namespace Nupre_API.Entidades
 {
     public class Profesionales_Solicitudes_Especialidades_Trans
@@ -42,7 +41,10 @@ namespace Nupre_API.Entidades
         /// </summary>
         public DateTime Registro_Fecha { get; set; }
 
-        public virtual ProfesionalesSolicitudesTran SolicitudNumeroNavigation { get; set; } = null!;
+        public virtual Profesionales_Solicitudes_Tran SolicitudNumeroNavigation { get; set; } = null!;
+
+        public virtual Profesionales_Especialidades_Tipos_Cata Profesionales_Especialidades_Tipos_Cata { get; set; } = null!;
+
 
         
         //public virtual ProfesionalesEspecialidadesEstadosCatum EspecialidadEstadoNumeroNavigation { get; set; } = null!;

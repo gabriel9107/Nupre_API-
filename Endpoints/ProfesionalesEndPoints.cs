@@ -15,14 +15,14 @@ namespace Nupre_API.Endpoints
         }
 
         
-        static async Task<Ok<List<ProfesionalesEspecialidadesCata>>> ObtenerTodos(IRepositorioProfesionalesEspecialidadesCata repositorio)
+        static async Task<Ok<List<Profesionales_Especialidades_Cata>>> ObtenerTodos(IRepositorioProfesionalesEspecialidadesCata repositorio)
         {
             var profesionales = await repositorio.ObtenerTodos();
             return TypedResults.Ok(profesionales);
 
         }
 
-        static async Task<Ok<List<ProfesionalesEspecialidadesCata>>> ObtenerPorTipo(IRepositorioProfesionalesEspecialidadesCata repositorio, int id)
+        static async Task<Ok<List<Profesionales_Especialidades_Cata>>> ObtenerPorTipo(IRepositorioProfesionalesEspecialidadesCata repositorio, int id)
         {
             var profesionales = await repositorio.ObtenerPorTipo(id);
 

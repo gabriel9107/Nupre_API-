@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Nupre_API.DTOs;
 using Nupre_API.Entidades;
 
 namespace Nupre_API.Repositorio
@@ -10,6 +11,9 @@ namespace Nupre_API.Repositorio
         {
             this.context = context;
         }
+
+
+
         public async Task<Profesionales_Solicitudes_Especialidades_Trans> obtenerTitulacionPorId(int numero_Solicitud)
         {
             return await context.Profesionales_Solicitudes_Especialidades_Trans.Where(x => x.Solicitud_Numero == numero_Solicitud && x.Registro_Estado == "A").FirstOrDefaultAsync();
@@ -17,6 +21,15 @@ namespace Nupre_API.Repositorio
 
         public async Task<List<Profesionales_Solicitudes_Especialidades_Trans>> obtenerTitulacionPorSolicitud(int numero_Solicitud)
         {
+
+            //var query = context.Profesionales_Solicitudes_Especialidades_Trans.Include(p => p.Profesionales_Especialidades_Tipos_Cata).Where(x => x.Solicitud_Numero == numero_Solicitud && x.Registro_Estado == "A").ToListAsync(); 
+
+            //var Ltitulos = Profesion_Especialidad_DTO {
+                
+                
+            //}
+
+
             return await context.Profesionales_Solicitudes_Especialidades_Trans.Where(x => x.Solicitud_Numero == numero_Solicitud && x.Registro_Estado == "A").ToListAsync();    
         }
 

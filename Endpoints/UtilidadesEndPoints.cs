@@ -51,7 +51,7 @@ namespace Nupre_API.Endpoints
             return TypedResults.Ok(nacionalidad); 
         }
 
-        static async Task<Ok<List<ProfesionalesEspecialidadesCata>>> obtenerCatalogoDeEspecilidades(IRepositorioProfesionalesEspecialidadesCata repositorio, int id)
+        static async Task<Ok<List<Profesionales_Especialidades_Cata>>> obtenerCatalogoDeEspecilidades(IRepositorioProfesionalesEspecialidadesCata repositorio, int id)
         {
             var catalogo = await repositorio.ObtenerPorTipo(id);
             return TypedResults.Ok(catalogo);

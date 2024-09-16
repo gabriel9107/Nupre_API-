@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Nupre_API.props" />
+</Project>

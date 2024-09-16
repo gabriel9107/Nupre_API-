@@ -11,28 +11,28 @@ namespace Nupre_API.Repositorio
         {
             this.context = context; 
         }
-        public async Task<ProfesionalesSolicitudesTran> ObtenerPorId(int id)
+        public async Task<Profesionales_Solicitudes_Tran> ObtenerPorId(int id)
         {
-            return await context.profesionalesSolicitudesTrans.FirstOrDefaultAsync(x => x.SolicitudNumero == id);
+            return await context.Profesionales_Solicitudes_Trans.FirstOrDefaultAsync(x => x.Solicitud_Numero == id);
         }
-        public Task<List<ProfesionalesSolicitudesTran>> ObtenerTodos()
+        public Task<List<Profesionales_Solicitudes_Tran>> ObtenerTodos()
         {
-            return context.profesionalesSolicitudesTrans.ToListAsync();
+            return context.Profesionales_Solicitudes_Trans.ToListAsync();
         }
-        public async Task<int> Crear(ProfesionalesSolicitudesTran trans)
+        public async Task<int> Crear(Profesionales_Solicitudes_Tran trans)
         {
             context.Add(trans); 
             await context.SaveChangesAsync();
-            return trans.SolicitudNumero; 
+            return trans.Solicitud_Numero; 
         }
-        public async Task Actualizar(ProfesionalesSolicitudesTran profesionales)
+        public async Task Actualizar(Profesionales_Solicitudes_Tran profesionales)
         {
             context.Update(profesionales);
             await context.SaveChangesAsync();
         }
         public async Task<bool> Existe(int id)
         {
-            return await context.profesionalesSolicitudesTrans.AnyAsync( x => x.SolicitudNumero == id);   
+            return await context.Profesionales_Solicitudes_Trans.AnyAsync( x => x.Solicitud_Numero == id);   
         }
 
       
