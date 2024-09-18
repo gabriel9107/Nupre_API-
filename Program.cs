@@ -13,6 +13,8 @@ using Nupre_API.Servicios;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.WebHost.UseKestrel(o => o.Limits.MaxRequestBodySize = null);
+
 
 builder.Services.AddDbContext<ApplicationDbContext>(optciones => optciones.UseSqlServer("name=DefaultConnection"));
 builder.Services.AddDbContext<SimonContext>(optciones => optciones.UseSqlServer("name=SimonConnection"));

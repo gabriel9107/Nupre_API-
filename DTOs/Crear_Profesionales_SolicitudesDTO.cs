@@ -1,10 +1,44 @@
 ﻿namespace Nupre_API.DTOs
 {
+
+    public class crearSolicituDTO
+    {
+        public string Profesional_Nombre_Completo { get; set; }
+        public string? Profesional_Documento { get; set; }
+
+        public IFormFile Archivo_Cedula { get; set; }
+
+        public IFormFile Archivo_Exequatur { get; set; }
+
+        public short Nacionalidad_Numero { get; set; }
+ 
+        public string Profesional_Sexo { get; set; } = null!;
+
+        
+        public string Profesional_Exequatur { get; set; } = null!;
+
+        public string Profesional_Direccion { get; set; } = null!;
+
+      
+        public short Municipio_Numero { get; set; }
+
+        public string Profesional_Telefono1 { get; set; } = null!;
+
+        public string? Profesional_Telefono2 { get; set; }
+
+        public string? Profesional_Telefono3 { get; set; }
+
+        public string Profesional_Mail { get; set; } = null!;
+
+    }
+
+
     public class Crear_Profesionales_SolicitudesDTO
     {
         public int Solicitud_Numero { get; set; }
         public DateTime Solicitud_Fecha { get; set; }
 
+        public IFormFile? Archivo_Cedula { get; set; }
         public IFormFile? Profesional_Documento { get; set; }
 
         /// <summary>

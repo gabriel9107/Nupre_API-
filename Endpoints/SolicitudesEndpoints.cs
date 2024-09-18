@@ -18,10 +18,55 @@ namespace Nupre_API.Endpoints
             group.MapGet("/", ObtenerTodos).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(15)).Tag("solicitudes-get")); ;
             group.MapGet("obtenerSolicitudPorId/{id:int}", ObtenerPorId);
             group.MapPost("/", Crear);
-            group.MapPost("crearSolicituDocumento", CrearSolicitudDocumento).DisableAntiforgery();
+            group.MapPost("crearSolicituDocumento", CrearSolicitudDocumento)
+
+                .                DisableAntiforgery();
+
+            group.MapPost("prueba", CrearSolicitudPrueba)
+                .DisableAntiforgery();
+;
             group.MapPut("/{id:int}", Actualizar);
             return group; 
         }
+
+
+        static async Task<Created<Crear_Profesionales_SolicitudesDTO>> CrearSolicitudPrueba([FromForm] 
+        crearSolicituDTO solicitudes,
+            IRepositorioProfesionalesSolicitudesTrans repositorio, IOutputCacheStore outputCacheStore,
+            IMapper mapper, IAlmacenadorArchivos almacenadorArchivos)
+        {
+
+            //solicitudes.Registro_Fecha = new DateTime(2022, 1, 1);
+            //solicitudes.Registro_Estado = "A";
+            //solicitudes.Registro_Usuario = "g.montero";
+            //solicitudes.Solicitud_Usuario_Cuenta = "g.montero";
+            //solicitudes.Solicitud_Estado_Numero = 1;
+            //solicitudes.Solicitud_Estado_Fecha = new DateTime(2022, 1, 1); ;
+
+
+            var _solicitud = mapper.Map<Profesionales_Solicitudes_Tran>(solicitudes);
+
+            //if (solicitudes.Profesional_Documento is not null)
+            //{
+            //    var url = await almacenadorArchivos.Almacenar(contenedor, solicitudes.archivo_Cedula);
+            //}
+
+
+
+
+            //Completar datos para prueba 
+
+
+
+
+            var id = await repositorio.Crear(_solicitud);
+
+            await outputCacheStore.EvictByTagAsync("solicitudes-get", default);
+
+            var actorDto = mapper.Map<Crear_Profesionales_SolicitudesDTO>(_solicitud);
+            return TypedResults.Created($"/{id}", actorDto);
+        }
+
 
         static async Task<Ok<List<Profesionales_Solicitudes_Tran>>> ObtenerTodos(IRepositorioProfesionalesSolicitudesTrans repositorio)
         {
@@ -29,6 +74,12 @@ namespace Nupre_API.Endpoints
             return TypedResults.Ok(profesionales);
 
         }
+
+
+
+
+
+
 
 
 
