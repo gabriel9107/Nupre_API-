@@ -5,6 +5,14 @@
         public int Documento_Codigo { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
+        /// <summary>
+        /// 1 Cedula 
+        /// 2 Execquatur 
+        /// 3 
+        /// </summary>
+        public int Tipo_Documento { get; set; }  
+
+        public string Documento_ruta { get; set; }
         public string Registro_Estado { get; set; }
         public string Registro_Usuario { get; set; }
 

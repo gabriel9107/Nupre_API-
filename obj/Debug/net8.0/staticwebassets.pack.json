@@ -1,0 +1,65 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\solicitud\\0010e3d4-4d6f-4a4b-a934-0a8a405de8e8.pdf",
+      "PackagePath": "staticwebassets\\solicitud\\0010e3d4-4d6f-4a4b-a934-0a8a405de8e8.pdf"
+    },
+    {
+      "Id": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\solicitud\\0d7dee8c-a678-43d1-8797-702962bdaf21.pdf",
+      "PackagePath": "staticwebassets\\solicitud\\0d7dee8c-a678-43d1-8797-702962bdaf21.pdf"
+    },
+    {
+      "Id": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\solicitud\\17ba0cb6-ada5-420f-9b46-0fd7e7f4780f.pdf",
+      "PackagePath": "staticwebassets\\solicitud\\17ba0cb6-ada5-420f-9b46-0fd7e7f4780f.pdf"
+    },
+    {
+      "Id": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\solicitud\\24f8c666-895b-4e80-a042-2416f301ec4e.pdf",
+      "PackagePath": "staticwebassets\\solicitud\\24f8c666-895b-4e80-a042-2416f301ec4e.pdf"
+    },
+    {
+      "Id": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\solicitud\\5d8c37e1-3d8f-4d0d-9b59-a4ade3a7fc51.pdf",
+      "PackagePath": "staticwebassets\\solicitud\\5d8c37e1-3d8f-4d0d-9b59-a4ade3a7fc51.pdf"
+    },
+    {
+      "Id": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\solicitud\\a1ead729-af9f-4c1d-9805-12562f78c584.pdf",
+      "PackagePath": "staticwebassets\\solicitud\\a1ead729-af9f-4c1d-9805-12562f78c584.pdf"
+    },
+    {
+      "Id": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\solicitud\\c4ad3786-baf5-4f8e-89a9-33505fa1c1bd.pdf",
+      "PackagePath": "staticwebassets\\solicitud\\c4ad3786-baf5-4f8e-89a9-33505fa1c1bd.pdf"
+    },
+    {
+      "Id": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\solicitud\\c4c62de9-bd2d-4759-b6f5-bd93eefc6b29.pdf",
+      "PackagePath": "staticwebassets\\solicitud\\c4c62de9-bd2d-4759-b6f5-bd93eefc6b29.pdf"
+    },
+    {
+      "Id": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\solicitud\\c84fb557-351b-4fdb-bdae-56d63e44da67.pdf",
+      "PackagePath": "staticwebassets\\solicitud\\c84fb557-351b-4fdb-bdae-56d63e44da67.pdf"
+    },
+    {
+      "Id": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\solicitud\\f8ae37d0-e950-4250-817a-e01e3ad0f531.pdf",
+      "PackagePath": "staticwebassets\\solicitud\\f8ae37d0-e950-4250-817a-e01e3ad0f531.pdf"
+    },
+    {
+      "Id": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\solicitud\\fc49d1dc-1e95-4938-b0b6-137234986f76.pdf",
+      "PackagePath": "staticwebassets\\solicitud\\fc49d1dc-1e95-4938-b0b6-137234986f76.pdf"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Nupre_API.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Nupre_API.props",
+      "PackagePath": "build\\Nupre_API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Nupre_API.props",
+      "PackagePath": "buildMultiTargeting\\Nupre_API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Nupre_API.props",
+      "PackagePath": "buildTransitive\\Nupre_API.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

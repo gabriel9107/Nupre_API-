@@ -21,6 +21,15 @@ namespace Nupre_API.Repositorio
         }
         public async Task<int> Crear(Profesionales_Solicitudes_Tran trans)
         {
+
+            trans.Registro_Fecha = new DateTime(2022, 1, 1);
+            trans.Registro_Estado = "A";
+            trans.Registro_Usuario = "g.montero";
+            trans.Solicitud_Usuario_Cuenta = "g.montero";
+            trans.Solicitud_Estado_Numero = 1;
+            trans.Solicitud_Estado_Fecha = new DateTime(2022, 1, 1); ;
+
+
             context.Add(trans); 
             await context.SaveChangesAsync();
             return trans.Solicitud_Numero; 

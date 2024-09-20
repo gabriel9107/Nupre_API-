@@ -7,18 +7,22 @@
         /// <summary>
         /// Numero de la especialidad médica. 
         /// </summary>
+        /// 
+        public int Especialidad_Tipo_Numero { get; set; }
         public short Especialidad_Numero { get; set; }
 
         public string Especialidad_Periodo { get; set; }
 
-        public string? Documento_Codigo { get; set; }
+        public IFormFile Documento_Codigo { get; set; }
 
-        
-        public byte Especialidad_Estado_Numero { get; set; }
+        //public string? Documento_Codigo { get; set; }
+        //public short? Disposicion_Numero { get; set; }
 
-        public DateTime Especialidad_Estado_Fecha { get; set; }
 
-        public short? Disposicion_Numero { get; set; }
+        //public byte Especialidad_Estado_Numero { get; set; }
+
+        //public DateTime Especialidad_Estado_Fecha { get; set; }
+
 
         //public IFormFile? documento {  get; set; } = null!;
 

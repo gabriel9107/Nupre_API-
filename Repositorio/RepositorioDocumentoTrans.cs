@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Nupre_API.DTOs;
 using Nupre_API.Entidades;
 using System.Reflection.Metadata.Ecma335;
+using System.Xml.XPath;
 
 namespace Nupre_API.Repositorio
 {
@@ -21,6 +23,26 @@ namespace Nupre_API.Repositorio
 
             return await context.Profesionales_Documento_Masters.Where(documento => documento.Documento_Codigo == documentId).FirstOrDefaultAsync();
         }
+
+
+        //public async Task<int> crearDocumento(CrearDocumentoComun_DTO documento)
+        //{
+        //    var _documento = new Profesionales_Documento_Master()
+        //    {
+        //        Nombre = documento.Nombre,
+        //        Descripcion = "",
+        //        Documento_ruta = documento.ruta,
+        //        Tipo_Documento = (int)documento.tipoDocumento!
+
+        //    };
+
+
+        //    context.Add(_documento);
+        //    await context.SaveChangesAsync();
+        //    return _documento.Documento_Codigo;
+
+
+        //}
 
         public async Task<int> Crear(Profesionales_Documento_Master documento)
         {

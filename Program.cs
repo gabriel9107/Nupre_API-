@@ -37,6 +37,7 @@ builder.Services.AddScoped<IRepositorioMunicipioTrans, RepositorioMunicipioTrans
 builder.Services.AddScoped<IRepositorioNacionalidad, RepositorioNacionalidad>();
 builder.Services.AddScoped<IRepositorioEstadoCata, RepositorioEstadoCata>();
 builder.Services.AddScoped<IRepositorioProfesionalesEspecialidadesTrans, RepositorioProfesionalesEspecialidadesTrans>();
+builder.Services.AddScoped<IRepositorioComunesDocumentosMaster, RepositorioComunesDocumentosMaster>();
 
 
 builder.Services.AddScoped<IAlmacenadorArchivos, AlmacenadorArchivosLocal>();

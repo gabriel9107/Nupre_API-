@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Nupre_API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb54a73df37b359f933c0fcfd6129fa9cc2b343a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Nupre_API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Nupre_API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

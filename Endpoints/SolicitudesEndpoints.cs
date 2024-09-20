@@ -12,7 +12,7 @@ namespace Nupre_API.Endpoints
     public static class SolicitudesEndpoints
     {
         private static readonly string contenedor = "solicitud";
-        public static RouteGroupBuilder  mapSolicitudes(this RouteGroupBuilder group)
+        public static RouteGroupBuilder mapSolicitudes(this RouteGroupBuilder group)
         {
 
             group.MapGet("/", ObtenerTodos).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(15)).Tag("solicitudes-get")); ;
@@ -20,50 +20,59 @@ namespace Nupre_API.Endpoints
             group.MapPost("/", Crear);
             group.MapPost("crearSolicituDocumento", CrearSolicitudDocumento)
 
-                .                DisableAntiforgery();
+                .DisableAntiforgery();
 
             group.MapPost("prueba", CrearSolicitudPrueba)
                 .DisableAntiforgery();
-;
+            ;
             group.MapPut("/{id:int}", Actualizar);
-            return group; 
+            return group;
         }
 
 
-        static async Task<Created<Crear_Profesionales_SolicitudesDTO>> CrearSolicitudPrueba([FromForm] 
+        static async Task<Created<crearSolicituDTO>> CrearSolicitudPrueba([FromForm]
         crearSolicituDTO solicitudes,
-            IRepositorioProfesionalesSolicitudesTrans repositorio, IOutputCacheStore outputCacheStore,
-            IMapper mapper, IAlmacenadorArchivos almacenadorArchivos)
+            IRepositorioProfesionalesSolicitudesTrans repositorio,
+                        IOutputCacheStore outputCacheStore,
+
+            IMapper mapper, IAlmacenadorArchivos almacenadorArchivos, IRepositorioComunesDocumentosMaster repositorioDocumento)
         {
 
-            //solicitudes.Registro_Fecha = new DateTime(2022, 1, 1);
-            //solicitudes.Registro_Estado = "A";
-            //solicitudes.Registro_Usuario = "g.montero";
-            //solicitudes.Solicitud_Usuario_Cuenta = "g.montero";
-            //solicitudes.Solicitud_Estado_Numero = 1;
-            //solicitudes.Solicitud_Estado_Fecha = new DateTime(2022, 1, 1); ;
+
+            CrearDocumentoComun_DTO _numeroDocumentoCedula;
+            int _nomeDocumentoCedula;
+            CrearDocumentoComun_DTO _numeroDocumentoExequatur;
+            int _nomeDocumentoExequatur;
 
 
             var _solicitud = mapper.Map<Profesionales_Solicitudes_Tran>(solicitudes);
 
-            //if (solicitudes.Profesional_Documento is not null)
-            //{
-            //    var url = await almacenadorArchivos.Almacenar(contenedor, solicitudes.archivo_Cedula);
-            //}
+            if (solicitudes.Profesional_Documento is not null && solicitudes.Profesional_Exequatur is not null)
+            {
+                _numeroDocumentoCedula = await almacenadorArchivos.Almacenar_NombreArchivo(contenedor, solicitudes.Archivo_Cedula);
+                if (_numeroDocumentoCedula is not null)
+
+                    _numeroDocumentoCedula.Tipo_Documento = 1;
+                    
+                _nomeDocumentoCedula = await repositorioDocumento.CrearDocumento(_numeroDocumentoCedula);
 
 
+                _numeroDocumentoExequatur = await almacenadorArchivos.Almacenar_NombreArchivo(contenedor, solicitudes.Archivo_Exequatur);
+                if (_numeroDocumentoExequatur is not null)
+                    _numeroDocumentoExequatur.Tipo_Documento = 2;
+                _nomeDocumentoCedula = await repositorioDocumento.CrearDocumento(_numeroDocumentoExequatur);
 
+                _solicitud.Profesional_Documento = _nomeDocumentoCedula.ToString();
+                _solicitud.Solicitud_Certificado_Numero = _numeroDocumentoExequatur.ToString(); 
+            }
 
             //Completar datos para prueba 
-
-
-
 
             var id = await repositorio.Crear(_solicitud);
 
             await outputCacheStore.EvictByTagAsync("solicitudes-get", default);
 
-            var actorDto = mapper.Map<Crear_Profesionales_SolicitudesDTO>(_solicitud);
+            var actorDto = mapper.Map<crearSolicituDTO>(_solicitud);
             return TypedResults.Created($"/{id}", actorDto);
         }
 
@@ -100,8 +109,8 @@ namespace Nupre_API.Endpoints
         }
 
         static async Task<Created<Crear_Profesionales_SolicitudesDTO>> CrearSolicitudDocumento([FromForm] Crear_Profesionales_SolicitudesDTO solicitudes,
-            IRepositorioProfesionalesSolicitudesTrans repositorio, IOutputCacheStore outputCacheStore, 
-            IMapper mapper, IAlmacenadorArchivos almacenadorArchivos)
+            IRepositorioProfesionalesSolicitudesTrans repositorio, IOutputCacheStore outputCacheStore,
+            IMapper mapper)
         {
 
             solicitudes.Registro_Fecha = new DateTime(2022, 1, 1);
@@ -114,9 +123,9 @@ namespace Nupre_API.Endpoints
 
             var _solicitud = mapper.Map<Profesionales_Solicitudes_Tran>(solicitudes);
 
-            if(solicitudes.Profesional_Documento is not null)
+            if (solicitudes.Profesional_Documento is not null)
             {
-                var url = await almacenadorArchivos.Almacenar(contenedor, solicitudes.Profesional_Documento);
+                //var url = await almacenadorArchivos.Almacenar_NombreArchivo(contenedor, solicitudes.Profesional_Documento);
             }
 
 
@@ -153,7 +162,7 @@ namespace Nupre_API.Endpoints
 
             await outputCacheStore.EvictByTagAsync("solicitudes-get", default);
             return TypedResults.Created($"/{id}", solicitudes);
-        }        
+        }
         static async Task<Results<NoContent, NotFound>> Actualizar(IRepositorioProfesionalesSolicitudesTrans repositorio,
             int id, Profesionales_Solicitudes_Tran trans, IOutputCacheStore outputCacheStore)
         {

@@ -105,6 +105,10 @@ namespace Nupre_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Documento_ruta")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -119,6 +123,9 @@ namespace Nupre_API.Migrations
                     b.Property<string>("Registro_Usuario")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Tipo_Documento")
+                        .HasColumnType("int");
 
                     b.HasKey("Documento_Codigo");
 

@@ -6,9 +6,9 @@
         public string Profesional_Nombre_Completo { get; set; }
         public string? Profesional_Documento { get; set; }
 
-        public IFormFile Archivo_Cedula { get; set; }
+        public IFormFile Archivo_Cedula { get; set; } = null!;
 
-        public IFormFile Archivo_Exequatur { get; set; }
+        public IFormFile Archivo_Exequatur { get; set; } = null!;
 
         public short Nacionalidad_Numero { get; set; }
  
