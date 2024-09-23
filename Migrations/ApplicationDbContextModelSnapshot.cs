@@ -311,10 +311,13 @@ namespace Nupre_API.Migrations
                     b.Property<byte>("Especialidad_Tipo_Numero")
                         .HasColumnType("tinyint");
 
+                    b.Property<int>("Especialidades_CataEspecialidad_Numero")
+                        .HasColumnType("int");
+
                     b.Property<byte?>("Motivo_Numero")
                         .HasColumnType("tinyint");
 
-                    b.Property<int>("Profesionales_Especialidades_Tipos_CataEspecialidad_Tipo_Numero")
+                    b.Property<int?>("Profesionales_Solicitudes_TranSolicitud_Numero")
                         .HasColumnType("int");
 
                     b.Property<string>("Registro_Estado")
@@ -328,14 +331,11 @@ namespace Nupre_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SolicitudNumeroNavigationSolicitud_Numero")
-                        .HasColumnType("int");
-
                     b.HasKey("Solicitud_Numero", "Especialidad_Numero");
 
-                    b.HasIndex("Profesionales_Especialidades_Tipos_CataEspecialidad_Tipo_Numero");
+                    b.HasIndex("Especialidades_CataEspecialidad_Numero");
 
-                    b.HasIndex("SolicitudNumeroNavigationSolicitud_Numero");
+                    b.HasIndex("Profesionales_Solicitudes_TranSolicitud_Numero");
 
                     b.ToTable("Profesionales_Solicitudes_Especialidades_Trans");
                 });
@@ -754,21 +754,17 @@ namespace Nupre_API.Migrations
 
             modelBuilder.Entity("Nupre_API.Entidades.Profesionales_Solicitudes_Especialidades_Trans", b =>
                 {
-                    b.HasOne("Nupre_API.Entidades.Profesionales_Especialidades_Tipos_Cata", "Profesionales_Especialidades_Tipos_Cata")
+                    b.HasOne("Nupre_API.Entidades.Profesionales_Especialidades_Cata", "Especialidades_Cata")
                         .WithMany()
-                        .HasForeignKey("Profesionales_Especialidades_Tipos_CataEspecialidad_Tipo_Numero")
+                        .HasForeignKey("Especialidades_CataEspecialidad_Numero")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Nupre_API.Entidades.Profesionales_Solicitudes_Tran", "SolicitudNumeroNavigation")
+                    b.HasOne("Nupre_API.Entidades.Profesionales_Solicitudes_Tran", null)
                         .WithMany("ProfesionalesSolicitudesEspecialidadesTrans")
-                        .HasForeignKey("SolicitudNumeroNavigationSolicitud_Numero")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Profesionales_Solicitudes_TranSolicitud_Numero");
 
-                    b.Navigation("Profesionales_Especialidades_Tipos_Cata");
-
-                    b.Navigation("SolicitudNumeroNavigation");
+                    b.Navigation("Especialidades_Cata");
                 });
 
             modelBuilder.Entity("Nupre_API.Entidades.TssTrabajadoresTran", b =>

@@ -62,10 +62,10 @@ namespace Nupre_API.Endpoints
         }
 
 
-        public static async Task<Ok<List<Profesionales_Solicitudes_Especialidades_Trans>>> obtenerListadoPorSolicitud(IRepositorioProfesionalesEspecialidadesTrans repositorio, int solicitud_numero)
+        public static async Task<Ok<List<DetalleProfesionales_DTO>>> obtenerListadoPorSolicitud(IRepositorioProfesionalesEspecialidadesTrans repositorio, int solicitud_numero)
         {
 
-            var titulos = await repositorio.obtenerTitulacionPorSolicitud(solicitud_numero);
+            var titulos = await repositorio.ObtenerTitulacionPorSolicitud(solicitud_numero);
             
             return TypedResults.Ok(titulos);
         }
