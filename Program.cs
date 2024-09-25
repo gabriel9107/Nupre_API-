@@ -38,6 +38,7 @@ builder.Services.AddScoped<IRepositorioNacionalidad, RepositorioNacionalidad>();
 builder.Services.AddScoped<IRepositorioEstadoCata, RepositorioEstadoCata>();
 builder.Services.AddScoped<IRepositorioProfesionalesEspecialidadesTrans, RepositorioProfesionalesEspecialidadesTrans>();
 builder.Services.AddScoped<IRepositorioComunesDocumentosMaster, RepositorioComunesDocumentosMaster>();
+builder.Services.AddScoped<IRepositorioProfesionalesAsociacionesTrans, RepositorioProfesionalesAsociacionesTrans>(); 
 
 
 builder.Services.AddScoped<IAlmacenadorArchivos, AlmacenadorArchivosLocal>();
@@ -77,6 +78,7 @@ app.MapGroup("/titulacion").mapProfesionalesEspecialidades();
 app.MapGroup("/profesiones").mapProfesionales();
 app.MapGroup("/utilidades").mapUtilidades();
 app.MapGroup("/ciudadano").mapCiudadano();
+app.MapGroup("/asociaciones/").mapAsociaciones(); 
 
 
 

@@ -19,6 +19,9 @@ namespace Nupre_API.Utilidades
             CreateMap<CrearProfesion_Especialidad_DTO, Profesionales_Solicitudes_Especialidades_Trans>();
             CreateMap<Profesionales_Solicitudes_Especialidades_Trans, CrearProfesion_Especialidad_DTO>();
 
+            //asosiaciones
+            CreateMap<Profesionales_Solicitudes_Asociaciones_Tran, CrearAsociacion_DTO>();
+            CreateMap<CrearAsociacion_DTO, Profesionales_Solicitudes_Asociaciones_Tran>();
 
         }
 

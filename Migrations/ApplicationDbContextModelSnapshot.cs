@@ -93,6 +93,38 @@ namespace Nupre_API.Migrations
                     b.ToTable("Comunes_Provincias_Cata");
                 });
 
+            modelBuilder.Entity("Nupre_API.Entidades.Profesionales_Asociaciones_Tipo_Cata", b =>
+                {
+                    b.Property<int>("Asociacion_Numero")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Asociacion_Numero"));
+
+                    b.Property<string>("Asociacion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Registro_Estado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Registro_Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Registro_Usuario")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Asociacion_Numero");
+
+                    b.ToTable("Profesionales_Asociaciones_Catas");
+                });
+
             modelBuilder.Entity("Nupre_API.Entidades.Profesionales_Documento_Master", b =>
                 {
                     b.Property<int>("Documento_Codigo")
@@ -279,6 +311,59 @@ namespace Nupre_API.Migrations
                     b.HasKey("Requerimiento_Numero");
 
                     b.ToTable("Profesionales_Requerimientos_Cata");
+                });
+
+            modelBuilder.Entity("Nupre_API.Entidades.Profesionales_Solicitudes_Asociaciones_Tran", b =>
+                {
+                    b.Property<int>("Solicitud_Numero")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Solicitud_Numero"));
+
+                    b.Property<DateTime>("Asociacion_Asociado_Estado_Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Asociacion_Asociado_Estado_Nota")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte>("Asociacion_Asociado_Estado_Numero")
+                        .HasColumnType("tinyint");
+
+                    b.Property<int>("Asociacion_Registro_Patronal")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Documento_Codigo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte>("Motivo_Numero")
+                        .HasColumnType("tinyint");
+
+                    b.Property<string>("Profesional_Asociacion_Codigo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Registro_Estado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Registro_Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Registro_Usuario")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SolicitudNumeroNavigationSolicitud_Numero")
+                        .HasColumnType("int");
+
+                    b.HasKey("Solicitud_Numero");
+
+                    b.HasIndex("SolicitudNumeroNavigationSolicitud_Numero");
+
+                    b.ToTable("Profesionales_Solicitudes_Asociaciones_Trans");
                 });
 
             modelBuilder.Entity("Nupre_API.Entidades.Profesionales_Solicitudes_Especialidades_Trans", b =>
@@ -750,6 +835,17 @@ namespace Nupre_API.Migrations
                     b.HasOne("Nupre_API.Entidades.ComunesProvinciasCatum", null)
                         .WithMany("ComunesMunicipiosCata")
                         .HasForeignKey("ComunesProvinciasCatumProvinciaNumero");
+                });
+
+            modelBuilder.Entity("Nupre_API.Entidades.Profesionales_Solicitudes_Asociaciones_Tran", b =>
+                {
+                    b.HasOne("Nupre_API.Entidades.Profesionales_Solicitudes_Tran", "SolicitudNumeroNavigation")
+                        .WithMany()
+                        .HasForeignKey("SolicitudNumeroNavigationSolicitud_Numero")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SolicitudNumeroNavigation");
                 });
 
             modelBuilder.Entity("Nupre_API.Entidades.Profesionales_Solicitudes_Especialidades_Trans", b =>

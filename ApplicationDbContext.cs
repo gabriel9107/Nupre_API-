@@ -78,8 +78,15 @@ namespace Nupre_API
             {
                 entity.Solicitud_Numero, entity.Especialidad_Numero
             });
-
-            //modelBuilder.Entity<ProfesionalesSolicitudesTran>().HasKey()
+            modelBuilder.Entity<Profesionales_Asociaciones_Tipo_Cata>().HasKey(entidad => new 
+            {
+                entidad.Asociacion_Numero
+            });
+            modelBuilder.Entity<Profesionales_Solicitudes_Asociaciones_Tran>().HasKey(entity => new
+            {
+                entity.Solicitud_Numero
+            });
+             
         }
 
         public DbSet<Profesionales_Solicitudes_Tran> Profesionales_Solicitudes_Trans { get; set; }
@@ -100,6 +107,11 @@ namespace Nupre_API
         public DbSet<Profesionales_Solicitudes_Especialidades_Trans> Profesionales_Solicitudes_Especialidades_Trans { get; set; }
 
         public DbSet<Profesionales_Estados_Cata> profesionales_Estados_Catas { get; set; }
+
+        public DbSet<Profesionales_Solicitudes_Asociaciones_Tran> Profesionales_Solicitudes_Asociaciones_Trans { get; set; }
+
+        public DbSet<Profesionales_Asociaciones_Tipo_Cata>   Profesionales_Asociaciones_Catas { get; set; }  
+
 
 
 

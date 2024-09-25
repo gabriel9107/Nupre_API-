@@ -1,4 +1,4 @@
-﻿using Nupre_API.Models;
+﻿ 
 
 namespace Nupre_API.Entidades
 {
@@ -35,12 +35,12 @@ namespace Nupre_API.Entidades
         /// </summary>
         public DateTime Registro_Fecha { get; set; }
 
-        public virtual ProfesionalesAsociacionesEstadosCatum AsociacionAsociadoEstadoNumeroNavigation { get; set; } = null!;
+        //public virtual ProfesionalesAsociacionesEstadosCatum AsociacionAsociadoEstadoNumeroNavigation { get; set; } = null!;
 
-        public virtual ProfesionalesAsociacionesMaster AsociacionRegistroPatronalNavigation { get; set; } = null!;
+        //public virtual ProfesionalesAsociacionesMaster AsociacionRegistroPatronalNavigation { get; set; } = null!;
 
-        public virtual ICollection<ProfesionalesSolicitudesAsociacionesHistorico> ProfesionalesSolicitudesAsociacionesHistoricos { get; set; } = new List<ProfesionalesSolicitudesAsociacionesHistorico>();
+        //public virtual ICollection<ProfesionalesSolicitudesAsociacionesHistorico> ProfesionalesSolicitudesAsociacionesHistoricos { get; set; } = new List<ProfesionalesSolicitudesAsociacionesHistorico>();
 
-        public virtual ProfesionalesSolicitudesTran SolicitudNumeroNavigation { get; set; } = null!;
+        public virtual Profesionales_Solicitudes_Tran   SolicitudNumeroNavigation { get; set; } = null!;
     }
 }
