@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Nupre_API.Entidades;
+using Nupre_API.Repositorio;
 using System;
 
 namespace Nupre_API
@@ -86,6 +87,10 @@ namespace Nupre_API
             {
                 entity.Solicitud_Numero
             });
+            modelBuilder.Entity<Profesionales_Solicitudes_Localidades_Tran>().HasKey(entity => new
+            {
+                entity.Solicitud_Numero
+            });
              
         }
 
@@ -111,6 +116,8 @@ namespace Nupre_API
         public DbSet<Profesionales_Solicitudes_Asociaciones_Tran> Profesionales_Solicitudes_Asociaciones_Trans { get; set; }
 
         public DbSet<Profesionales_Asociaciones_Tipo_Cata>   Profesionales_Asociaciones_Catas { get; set; }  
+
+        public DbSet<Profesionales_Solicitudes_Localidades_Tran> Profesionales_Solicitudes_Localidades_Trans { get; set; }
 
 
 

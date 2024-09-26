@@ -41,6 +41,6 @@ namespace Nupre_API.Entidades
 
         //public virtual ICollection<ProfesionalesSolicitudesAsociacionesHistorico> ProfesionalesSolicitudesAsociacionesHistoricos { get; set; } = new List<ProfesionalesSolicitudesAsociacionesHistorico>();
 
-        public virtual Profesionales_Solicitudes_Tran   SolicitudNumeroNavigation { get; set; } = null!;
+        //public virtual Profesionales_Solicitudes_Tran   SolicitudNumeroNavigation { get; set; } = null!;
     }
 }

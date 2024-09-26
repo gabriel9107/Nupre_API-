@@ -16,7 +16,7 @@ namespace Nupre_API.Endpoints
         public static RouteGroupBuilder mapAsociaciones(this RouteGroupBuilder group)
         {
 
-            group.MapPost("", Crear).DisableAntiforgery();
+            group.MapPost("/", Crear).DisableAntiforgery();
             group.MapGet("obtenerAsociacionesPorId/{id:int}", obtenerPorId);
 
             group.MapGet("ListadoAsociaciones", obtenerTodos).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(15)).Tag("Solicitud-asociaciones-get"));
