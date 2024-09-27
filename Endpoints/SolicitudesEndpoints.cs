@@ -15,7 +15,10 @@ namespace Nupre_API.Endpoints
         public static RouteGroupBuilder mapSolicitudes(this RouteGroupBuilder group)
         {
 
+
+            
             group.MapGet("/", ObtenerTodos).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(15)).Tag("solicitudes-get")); ;
+            group.MapGet("obtenerSolicitud", ObtenerTodosFiltrada);
             group.MapGet("obtenerSolicitudPorId/{id:int}", ObtenerPorId);
             group.MapPost("/", Crear);
             group.MapPost("crearSolicituDocumento", CrearSolicitudDocumento)
@@ -76,6 +79,24 @@ namespace Nupre_API.Endpoints
             return TypedResults.Created($"/{id}", actorDto);
         }
 
+
+
+
+        static async Task<Ok<List<Profesionales_Solicitudes_Tran>>> ObtenerTodosFiltrada(
+             IRepositorioProfesionalesSolicitudesTrans repositorio, [FromBody] Profesionales_Filtro_Listado_DTO filtros, IMapper mapper
+            )
+        {
+
+
+            filtros.PageIndex = filtros.PageSize * (filtros.Draw - 1);
+            var resultado = await repositorio.getrequestsbyuser(filtros);
+             
+            return TypedResults.Ok(resultado);
+
+
+
+
+        }
 
         static async Task<Ok<List<Profesionales_Solicitudes_Tran>>> ObtenerTodos(IRepositorioProfesionalesSolicitudesTrans repositorio)
         {
