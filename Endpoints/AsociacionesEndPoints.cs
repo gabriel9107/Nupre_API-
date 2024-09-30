@@ -26,7 +26,10 @@ namespace Nupre_API.Endpoints
         }
 
         static async Task<Created<Profesionales_Solicitudes_Asociaciones_Tran>> Crear([FromForm] CrearAsociacion_DTO transaccion, IRepositorioProfesionalesAsociacionesTrans repositorio,
-            IOutputCacheStore outputCacheStore, IMapper mapper, IAlmacenadorArchivos almacenadorArchivos, IRepositorioComunesDocumentosMaster repositorioDocumentos)
+            IOutputCacheStore outputCacheStore
+            , IMapper mapper
+            , IAlmacenadorArchivos almacenadorArchivos
+            , IRepositorioComunesDocumentosMaster repositorioDocumentos)
         {
             CrearDocumentoComun_DTO _numeroDocumento  = new CrearDocumentoComun_DTO();
             int documento;

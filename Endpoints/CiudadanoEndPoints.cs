@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
+using Nupre_API.DTOs;
 using Nupre_API.Entidades;
 using Nupre_API.Repositorio;
 
@@ -9,10 +12,28 @@ namespace Nupre_API.Endpoints
         public static RouteGroupBuilder mapCiudadano(this RouteGroupBuilder group)
         {
             group.MapGet("obtenerCiudadano/{id:int}", obtenerCiudadano);
+            group.MapGet("obtenerCiudadanoFiltro", ObtenerTodosFiltrada);
             group.MapGet("/{id:int}", getCiudadano);
 
-            //group.MapGet("obtenerCiudadano/{id:int}", obtenerCiudadano);
             return group;
+        }
+
+
+        static async Task<Ok<TssCiudadanosMaster>> ObtenerTodosFiltrada(
+                IRepositorioCiudadanoTrans repositorio
+               , [AsParameters] Ciudadano_FiltroDTO filtros, IMapper mapper
+               )
+        {
+
+
+            
+            var resultado = await repositorio.obtenerCiudadanoFiltrado(filtros);
+
+            return TypedResults.Ok(resultado);
+
+
+
+
         }
 
         public static async Task<Results<Ok<TssCiudadanosMaster>, NotFound>> getCiudadano(IRepositorioCiudadanoTrans repositorio, int id)

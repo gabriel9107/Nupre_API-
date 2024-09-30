@@ -70,6 +70,7 @@ app.UseStaticFiles();
 
 
 
+
 app.UseCors();
 //Agregamos el uso del cache del servidor para eliminar las llamadas repetidas a la base de datos 
 app.UseOutputCache();

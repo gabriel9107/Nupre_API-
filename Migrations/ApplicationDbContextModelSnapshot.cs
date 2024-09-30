@@ -356,12 +356,7 @@ namespace Nupre_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SolicitudNumeroNavigationSolicitud_Numero")
-                        .HasColumnType("int");
-
                     b.HasKey("Solicitud_Numero");
-
-                    b.HasIndex("SolicitudNumeroNavigationSolicitud_Numero");
 
                     b.ToTable("Profesionales_Solicitudes_Asociaciones_Trans");
                 });
@@ -843,42 +838,37 @@ namespace Nupre_API.Migrations
 
             modelBuilder.Entity("Nupre_API.Entidades.TssTrabajadoresTran", b =>
                 {
-                    b.Property<long>("TrabajadorNss")
+                    b.Property<long>("Trabajador_Nss")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("TrabajadorNss"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Trabajador_Nss"));
 
-                    b.Property<int>("EmpleadorRegistroPatronal")
+                    b.Property<int>("Empleador_Registro_Patronal")
                         .HasColumnType("int");
 
-                    b.Property<string>("RegistroEstado")
+                    b.Property<string>("Registro_Estado")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("RegistroFecha")
+                    b.Property<DateTime>("Registro_Fecha")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("RegistroUsuario")
+                    b.Property<string>("Registro_Usuario")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TrabajadorEstatus")
+                    b.Property<string>("Trabajador_Estatus")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("TrabajadorFechaActualizacionTss")
+                    b.Property<DateTime>("Trabajador_FechaRegistro_Tss")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("TrabajadorFechaRegistroTss")
+                    b.Property<DateTime>("Trabajador_Fecha_Actualizacion_Tss")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("TrabajadorNssNavigationCiudadanoNss")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("TrabajadorNss");
-
-                    b.HasIndex("TrabajadorNssNavigationCiudadanoNss");
+                    b.HasKey("Trabajador_Nss");
 
                     b.ToTable("TSS_Trabajadores_Trans");
                 });
@@ -888,17 +878,6 @@ namespace Nupre_API.Migrations
                     b.HasOne("Nupre_API.Entidades.ComunesProvinciasCatum", null)
                         .WithMany("ComunesMunicipiosCata")
                         .HasForeignKey("ComunesProvinciasCatumProvinciaNumero");
-                });
-
-            modelBuilder.Entity("Nupre_API.Entidades.Profesionales_Solicitudes_Asociaciones_Tran", b =>
-                {
-                    b.HasOne("Nupre_API.Entidades.Profesionales_Solicitudes_Tran", "SolicitudNumeroNavigation")
-                        .WithMany()
-                        .HasForeignKey("SolicitudNumeroNavigationSolicitud_Numero")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("SolicitudNumeroNavigation");
                 });
 
             modelBuilder.Entity("Nupre_API.Entidades.Profesionales_Solicitudes_Especialidades_Trans", b =>
@@ -914,17 +893,6 @@ namespace Nupre_API.Migrations
                         .HasForeignKey("Profesionales_Solicitudes_TranSolicitud_Numero");
 
                     b.Navigation("Especialidades_Cata");
-                });
-
-            modelBuilder.Entity("Nupre_API.Entidades.TssTrabajadoresTran", b =>
-                {
-                    b.HasOne("Nupre_API.Entidades.TssCiudadanosMaster", "TrabajadorNssNavigation")
-                        .WithMany()
-                        .HasForeignKey("TrabajadorNssNavigationCiudadanoNss")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("TrabajadorNssNavigation");
                 });
 
             modelBuilder.Entity("Nupre_API.Entidades.ComunesProvinciasCatum", b =>

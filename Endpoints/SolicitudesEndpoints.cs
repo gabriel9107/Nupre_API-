@@ -83,7 +83,8 @@ namespace Nupre_API.Endpoints
 
 
         static async Task<Ok<List<Profesionales_Solicitudes_Tran>>> ObtenerTodosFiltrada(
-             IRepositorioProfesionalesSolicitudesTrans repositorio, [FromBody] Profesionales_Filtro_Listado_DTO filtros, IMapper mapper
+             IRepositorioProfesionalesSolicitudesTrans repositorio
+            , [FromBody] Profesionales_Filtro_Listado_DTO filtros, IMapper mapper
             )
         {
 

@@ -33,7 +33,7 @@ namespace Nupre_API
             });
             modelBuilder.Entity<TssTrabajadoresTran>().HasKey(entity => new
             {
-                entity.TrabajadorNss
+                entity.Trabajador_Nss
             });
 
             modelBuilder.Entity<TssEmpleadoresMaster>().HasKey(entity => new
