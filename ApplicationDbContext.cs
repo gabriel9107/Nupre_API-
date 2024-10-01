@@ -33,7 +33,7 @@ namespace Nupre_API
             });
             modelBuilder.Entity<TssTrabajadoresTran>().HasKey(entity => new
             {
-                entity.Trabajador_Nss
+                entity.Trabajador_Nss, entity.Empleador_Registro_Patronal
             });
 
             modelBuilder.Entity<TssEmpleadoresMaster>().HasKey(entity => new
@@ -91,7 +91,12 @@ namespace Nupre_API
             {
                 entity.Solicitud_Numero
             });
-             
+
+            modelBuilder.Entity<Solicitudes_Actividades_Trans>().HasKey(entity => new
+            {
+                entity.Actividad_Secuencia
+            });
+
         }
 
         public DbSet<Profesionales_Solicitudes_Tran> Profesionales_Solicitudes_Trans { get; set; }
@@ -118,6 +123,9 @@ namespace Nupre_API
         public DbSet<Profesionales_Asociaciones_Tipo_Cata>   Profesionales_Asociaciones_Catas { get; set; }  
 
         public DbSet<Profesionales_Solicitudes_Localidades_Tran> Profesionales_Solicitudes_Localidades_Trans { get; set; }
+
+        public DbSet<Solicitudes_Actividades_Trans> Profesionales_Solicitudes_Actividades_Trans { get; set; }
+
 
 
 

@@ -1,6 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Nupre_API.DTOs;
 using Nupre_API.Entidades;
+using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 
 
@@ -9,9 +11,12 @@ namespace Nupre_API.Repositorio
     public class RepositorioProfesionalesSolcitiudesTrans : IRepositorioProfesionalesSolicitudesTrans
     {
         private readonly ApplicationDbContext context;
-        public RepositorioProfesionalesSolcitiudesTrans(ApplicationDbContext context)
+        private readonly IMapper mapper;
+        public RepositorioProfesionalesSolcitiudesTrans(ApplicationDbContext context, IMapper mapper)
         {
             this.context = context; 
+            this.mapper = mapper;
+
         }
         public async Task<Profesionales_Solicitudes_Tran> ObtenerPorId(int id)
         {
@@ -20,6 +25,7 @@ namespace Nupre_API.Repositorio
 
         public async Task<List<Profesionales_Solicitudes_Tran>> getrequestsbyuser(Profesionales_Filtro_Listado_DTO filtro)
         {
+            
             var query = context.Profesionales_Solicitudes_Trans.Where(x => x.Registro_Estado == "A" && x.Asociacion_Registro_Patronal == filtro.Empleador_Registro_Patronal);
 
             if (query is not null)
@@ -29,10 +35,11 @@ namespace Nupre_API.Repositorio
             }
              else
             {
-                query = context.Profesionales_Solicitudes_Trans.Where(x => x.Registro_Estado == "A" && x.Profesional_Documento == filtro.Cedula || x.Solicitud_Numero.ToString() == filtro.Solicitud_Numero); 
-            }
-
-            return await query.ToListAsync();   
+                query = context.Profesionales_Solicitudes_Trans.Where(x => x.Registro_Estado == "A" && x.Profesional_Documento == filtro.Cedula || x.Solicitud_Numero.ToString() == filtro.Solicitud_Numero).Include(x => x.SolicitudEstadoNumeroNavigation);
+                    
+            } 
+            
+            return await   query.ToListAsync();  
         }
         public Task<List<Profesionales_Solicitudes_Tran>> ObtenerTodos()
         {

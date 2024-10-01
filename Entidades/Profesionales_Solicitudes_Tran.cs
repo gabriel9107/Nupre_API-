@@ -72,9 +72,11 @@
         /// Indica la fecha de cuando se insertó o se actualizó un registro en una tabla.
         /// </summary>
         public DateTime Registro_Fecha { get; set; }
-                
-        public virtual ICollection<Profesionales_Solicitudes_Especialidades_Trans> ProfesionalesSolicitudesEspecialidadesTrans { get; set; } = new List<Profesionales_Solicitudes_Especialidades_Trans>();
-                                   
+
+
+
+        //public virtual ICollection<Profesionales_Solicitudes_Especialidades_Trans> ProfesionalesSolicitudesEspecialidadesTrans { get; set; } = new List<Profesionales_Solicitudes_Especialidades_Trans>();
+
         //public virtual ComunesMunicipiosCatum MunicipioNumeroNavigation { get; set; } = null!;
 
         //public virtual TssNacionalidadesCatum NacionalidadNumeroNavigation { get; set; } = null!;
@@ -88,6 +90,6 @@
 
         //public virtual ICollection<ProfesionalesSolicitudesRequerimientosTran> ProfesionalesSolicitudesRequerimientosTrans { get; set; } = new List<ProfesionalesSolicitudesRequerimientosTran>();
 
-        //public virtual ProfesionalesSolicitudesEstadosCatum SolicitudEstadoNumeroNavigation { get; set; } = null!;
+        public virtual Profesionales_Estados_Cata SolicitudEstadoNumeroNavigation { get; set; } = null!;
     }
 }

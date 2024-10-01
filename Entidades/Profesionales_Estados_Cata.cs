@@ -35,7 +35,8 @@
 
         public string Profesional_Estado_Mensaje { get; set; } = null!;
 
-  
+
+        public virtual ICollection<Profesionales_Solicitudes_Tran> Profesionales_Solicitudes_trans { get; set; } = new List<Profesionales_Solicitudes_Tran>();
         //public virtual ICollection<ProfesionalesMaster> ProfesionalesMasters { get; set; } = new List<ProfesionalesMaster>();
 
 

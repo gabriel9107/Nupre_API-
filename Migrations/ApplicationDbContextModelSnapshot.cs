@@ -397,9 +397,6 @@ namespace Nupre_API.Migrations
                     b.Property<byte?>("Motivo_Numero")
                         .HasColumnType("tinyint");
 
-                    b.Property<int?>("Profesionales_Solicitudes_TranSolicitud_Numero")
-                        .HasColumnType("int");
-
                     b.Property<string>("Registro_Estado")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -414,8 +411,6 @@ namespace Nupre_API.Migrations
                     b.HasKey("Solicitud_Numero", "Especialidad_Numero");
 
                     b.HasIndex("Especialidades_CataEspecialidad_Numero");
-
-                    b.HasIndex("Profesionales_Solicitudes_TranSolicitud_Numero");
 
                     b.ToTable("Profesionales_Solicitudes_Especialidades_Trans");
                 });
@@ -537,6 +532,9 @@ namespace Nupre_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<byte>("SolicitudEstadoNumeroNavigationProfesional_Estado_Numero")
+                        .HasColumnType("tinyint");
+
                     b.Property<string>("Solicitud_Actualizar_Datos")
                         .HasColumnType("nvarchar(max)");
 
@@ -561,7 +559,52 @@ namespace Nupre_API.Migrations
 
                     b.HasKey("Solicitud_Numero");
 
+                    b.HasIndex("SolicitudEstadoNumeroNavigationProfesional_Estado_Numero");
+
                     b.ToTable("Profesionales_Solicitudes_Trans");
+                });
+
+            modelBuilder.Entity("Nupre_API.Entidades.Solicitudes_Actividades_Trans", b =>
+                {
+                    b.Property<int>("Actividad_Secuencia")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Actividad_Secuencia"));
+
+                    b.Property<string>("Actividad_Contenido")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Actividad_Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Actividad_Numero")
+                        .HasColumnType("int");
+
+                    b.Property<string>("RegistroEstado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RegistroFecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("RegistroUsuario")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Solicitud_Numero")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Solicitud_Tipo_Numero")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Sometimiento_Secuencia")
+                        .HasColumnType("int");
+
+                    b.HasKey("Actividad_Secuencia");
+
+                    b.ToTable("Profesionales_Solicitudes_Actividades_Trans");
                 });
 
             modelBuilder.Entity("Nupre_API.Entidades.TSSNacionalidadesCata", b =>
@@ -839,10 +882,7 @@ namespace Nupre_API.Migrations
             modelBuilder.Entity("Nupre_API.Entidades.TssTrabajadoresTran", b =>
                 {
                     b.Property<long>("Trabajador_Nss")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Trabajador_Nss"));
 
                     b.Property<int>("Empleador_Registro_Patronal")
                         .HasColumnType("int");
@@ -862,13 +902,13 @@ namespace Nupre_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("Trabajador_FechaRegistro_Tss")
-                        .HasColumnType("datetime2");
-
                     b.Property<DateTime>("Trabajador_Fecha_Actualizacion_Tss")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("Trabajador_Nss");
+                    b.Property<DateTime>("Trabajador_Fecha_Registro_Tss")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Trabajador_Nss", "Empleador_Registro_Patronal");
 
                     b.ToTable("TSS_Trabajadores_Trans");
                 });
@@ -888,11 +928,18 @@ namespace Nupre_API.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Nupre_API.Entidades.Profesionales_Solicitudes_Tran", null)
-                        .WithMany("ProfesionalesSolicitudesEspecialidadesTrans")
-                        .HasForeignKey("Profesionales_Solicitudes_TranSolicitud_Numero");
-
                     b.Navigation("Especialidades_Cata");
+                });
+
+            modelBuilder.Entity("Nupre_API.Entidades.Profesionales_Solicitudes_Tran", b =>
+                {
+                    b.HasOne("Nupre_API.Entidades.Profesionales_Estados_Cata", "SolicitudEstadoNumeroNavigation")
+                        .WithMany("Profesionales_Solicitudes_trans")
+                        .HasForeignKey("SolicitudEstadoNumeroNavigationProfesional_Estado_Numero")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SolicitudEstadoNumeroNavigation");
                 });
 
             modelBuilder.Entity("Nupre_API.Entidades.ComunesProvinciasCatum", b =>
@@ -900,9 +947,9 @@ namespace Nupre_API.Migrations
                     b.Navigation("ComunesMunicipiosCata");
                 });
 
-            modelBuilder.Entity("Nupre_API.Entidades.Profesionales_Solicitudes_Tran", b =>
+            modelBuilder.Entity("Nupre_API.Entidades.Profesionales_Estados_Cata", b =>
                 {
-                    b.Navigation("ProfesionalesSolicitudesEspecialidadesTrans");
+                    b.Navigation("Profesionales_Solicitudes_trans");
                 });
 #pragma warning restore 612, 618
         }

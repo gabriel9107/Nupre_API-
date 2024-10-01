@@ -14,6 +14,9 @@ namespace Nupre_API.Utilidades
             CreateMap<crearSolicituDTO, Profesionales_Solicitudes_Tran>();
             CreateMap<Profesionales_Solicitudes_Tran, crearSolicituDTO>();
 
+            CreateMap<Profesionales_Solicitudes_Tran, Solicitud_ListadoDTO>();
+            CreateMap<Solicitud_ListadoDTO, Profesionales_Solicitudes_Tran>(); 
+
 
             //Titulacion - (Grado, especialidades) 
             CreateMap<CrearProfesion_Especialidad_DTO, Profesionales_Solicitudes_Especialidades_Trans>();
@@ -22,6 +25,11 @@ namespace Nupre_API.Utilidades
             //asosiaciones
             CreateMap<Profesionales_Solicitudes_Asociaciones_Tran, CrearAsociacion_DTO>();
             CreateMap<CrearAsociacion_DTO, Profesionales_Solicitudes_Asociaciones_Tran>();
+
+
+            //actvidades 
+            CreateMap<Solicitudes_Actividades_Trans, CrearSolicitudes_ActividadesDTO>();
+            CreateMap<CrearSolicitudes_ActividadesDTO,Solicitudes_Actividades_Trans>();
 
         }
 

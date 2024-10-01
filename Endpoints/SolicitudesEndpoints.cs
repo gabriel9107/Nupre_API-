@@ -38,7 +38,7 @@ namespace Nupre_API.Endpoints
             IRepositorioProfesionalesSolicitudesTrans repositorio,
                         IOutputCacheStore outputCacheStore,
 
-            IMapper mapper, IAlmacenadorArchivos almacenadorArchivos, IRepositorioComunesDocumentosMaster repositorioDocumento)
+            IMapper mapper, IAlmacenadorArchivos almacenadorArchivos, IRepositorioComunesDocumentosMaster repositorioDocumento, IRepositorioSolicitudes_Actividades_Trans actividades)
         {
 
 
@@ -76,6 +76,10 @@ namespace Nupre_API.Endpoints
             await outputCacheStore.EvictByTagAsync("solicitudes-get", default);
 
             var actorDto = mapper.Map<crearSolicituDTO>(_solicitud);
+
+ 
+             
+
             return TypedResults.Created($"/{id}", actorDto);
         }
 
@@ -84,7 +88,7 @@ namespace Nupre_API.Endpoints
 
         static async Task<Ok<List<Profesionales_Solicitudes_Tran>>> ObtenerTodosFiltrada(
              IRepositorioProfesionalesSolicitudesTrans repositorio
-            , [FromBody] Profesionales_Filtro_Listado_DTO filtros, IMapper mapper
+            , [AsParameters]  Profesionales_Filtro_Listado_DTO filtros, IMapper mapper
             )
         {
 
@@ -106,12 +110,7 @@ namespace Nupre_API.Endpoints
 
         }
 
-
-
-
-
-
-
+         
 
 
         //static async Task<Results<Ok<DetalleSolicitudDTO>, NotFound>> obtenerDetalleSolicitud(IRepositorioProfesionalesSolicitudesTrans repositorio, int solicitudNumero)
