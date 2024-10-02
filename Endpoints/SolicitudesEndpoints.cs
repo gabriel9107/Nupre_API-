@@ -50,7 +50,7 @@ namespace Nupre_API.Endpoints
 
             var _solicitud = mapper.Map<Profesionales_Solicitudes_Tran>(solicitudes);
 
-            if (solicitudes.Profesional_Documento is not null && solicitudes.Profesional_Exequatur is not null)
+            if (solicitudes.Archivo_Cedula is not null && solicitudes.Archivo_Exequatur is not null)
             {
                 _numeroDocumentoCedula = await almacenadorArchivos.Almacenar_NombreArchivo(contenedor, solicitudes.Archivo_Cedula);
                 if (_numeroDocumentoCedula is not null)
@@ -63,9 +63,9 @@ namespace Nupre_API.Endpoints
                 _numeroDocumentoExequatur = await almacenadorArchivos.Almacenar_NombreArchivo(contenedor, solicitudes.Archivo_Exequatur);
                 if (_numeroDocumentoExequatur is not null)
                     _numeroDocumentoExequatur.Tipo_Documento = 2;
-                _nomeDocumentoCedula = await repositorioDocumento.CrearDocumento(_numeroDocumentoExequatur);
+                _nomeDocumentoExequatur = await repositorioDocumento.CrearDocumento(_numeroDocumentoCedula);
 
-                _solicitud.Profesional_Documento = _nomeDocumentoCedula.ToString();
+                _solicitud.Profesional_Documento_Cedula_Numero = _nomeDocumentoCedula;
                 _solicitud.Solicitud_Certificado_Numero = _numeroDocumentoExequatur.ToString(); 
             }
 

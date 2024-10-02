@@ -96,6 +96,10 @@ namespace Nupre_API
             {
                 entity.Actividad_Secuencia
             });
+            modelBuilder.Entity<Profesionales_Actividades_Tipos_Cata>().HasKey(entity => new
+            {
+                entity.Actividad_Numero
+            });
 
         }
 
@@ -125,6 +129,8 @@ namespace Nupre_API
         public DbSet<Profesionales_Solicitudes_Localidades_Tran> Profesionales_Solicitudes_Localidades_Trans { get; set; }
 
         public DbSet<Solicitudes_Actividades_Trans> Profesionales_Solicitudes_Actividades_Trans { get; set; }
+
+        public DbSet<Profesionales_Actividades_Tipos_Cata> Profesionales_Actividades_Tipos_Cata {  get; set; }
 
 
 

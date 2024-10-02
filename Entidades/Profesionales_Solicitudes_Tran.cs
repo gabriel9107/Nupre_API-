@@ -6,7 +6,11 @@
         public int Solicitud_Numero { get; set; } 
         public DateTime Solicitud_Fecha { get; set; }
 
-        public string? Profesional_Documento { get; set; }
+        public string Profesional_Cedula { get; set; } = null!;
+
+
+        //Numero de relacion con el documento scaneado de la cedula 
+        public int Profesional_Documento_Cedula_Numero { get; set; } = 0!;
 
         /// <summary>
         /// Es nombre completo (Nombres  y Apellidos) de cada persona registrada en el padrón de ciudadanos de la TSS.
@@ -26,6 +30,10 @@
         /// Número de Exequátur del Médico.
         /// </summary>
         public string Profesional_Exequatur { get; set; } = null!;
+
+        public int Profesional_Exequatur_Numero { get; set; }   = 0!;
+
+       
 
         public string Profesional_Direccion { get; set; } = null!;
 

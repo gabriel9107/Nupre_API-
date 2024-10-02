@@ -41,7 +41,7 @@ namespace Nupre_API.Repositorio
             }
 
             //verificamos si la persona esta en la empresa que esta realizando el registro 
-
+                
             if (filtro.Empleador_Registro_Patronal is not null)
             {
                 var query = await context.TSS_Trabajadores_Trans.Where(s => s.Empleador_Registro_Patronal == filtro.Empleador_Registro_Patronal && s.Trabajador_Nss == nss.CiudadanoNss).FirstOrDefaultAsync();

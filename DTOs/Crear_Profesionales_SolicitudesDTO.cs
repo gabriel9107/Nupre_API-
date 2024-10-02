@@ -4,22 +4,22 @@
     public class crearSolicituDTO
     {
         public string Profesional_Nombre_Completo { get; set; }
-        public string? Profesional_Documento { get; set; }
+        public string? Profesional_Cedula { get; set; }
 
         public IFormFile Archivo_Cedula { get; set; } = null!;
 
         public IFormFile Archivo_Exequatur { get; set; } = null!;
 
         public short Nacionalidad_Numero { get; set; }
- 
+
         public string Profesional_Sexo { get; set; } = null!;
 
-        
+
         public string Profesional_Exequatur { get; set; } = null!;
 
         public string Profesional_Direccion { get; set; } = null!;
 
-      
+
         public short Municipio_Numero { get; set; }
 
         public string Profesional_Telefono1 { get; set; } = null!;
@@ -29,6 +29,10 @@
         public string? Profesional_Telefono3 { get; set; }
 
         public string Profesional_Mail { get; set; } = null!;
+        
+        public int? Asociacion_Registro_Patronal { get; set; }
+
+        public string Solicitud_Usuario_Cuenta { get; set; } = null!;   
 
     }
 

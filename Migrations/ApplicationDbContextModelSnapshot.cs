@@ -93,6 +93,53 @@ namespace Nupre_API.Migrations
                     b.ToTable("Comunes_Provincias_Cata");
                 });
 
+            modelBuilder.Entity("Nupre_API.Entidades.Profesionales_Actividades_Tipos_Cata", b =>
+                {
+                    b.Property<int>("Actividad_Numero")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Actividad_Numero"));
+
+                    b.Property<string>("Actividad_Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Actividad_Editable")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Actividad_Explicacion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Actividad_Proceso_Cierra")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Actividad_Requerida")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Proceso_Tipo")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Registro_Estado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Registro_Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Registro_Usuario")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Actividad_Numero");
+
+                    b.ToTable("Profesionales_Actividades_Tipos_Cata");
+                });
+
             modelBuilder.Entity("Nupre_API.Entidades.Profesionales_Asociaciones_Tipo_Cata", b =>
                 {
                     b.Property<int>("Asociacion_Numero")
@@ -488,16 +535,23 @@ namespace Nupre_API.Migrations
                     b.Property<short>("Nacionalidad_Numero")
                         .HasColumnType("smallint");
 
+                    b.Property<string>("Profesional_Cedula")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Profesional_Direccion")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Profesional_Documento")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Profesional_Documento_Cedula_Numero")
+                        .HasColumnType("int");
 
                     b.Property<string>("Profesional_Exequatur")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Profesional_Exequatur_Numero")
+                        .HasColumnType("int");
 
                     b.Property<string>("Profesional_Mail")
                         .IsRequired()
