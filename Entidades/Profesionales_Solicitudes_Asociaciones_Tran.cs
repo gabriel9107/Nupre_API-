@@ -4,6 +4,7 @@ namespace Nupre_API.Entidades
 {
     public class Profesionales_Solicitudes_Asociaciones_Tran
     {
+        public int Asociacion_ID { get; set; }
         public int Solicitud_Numero { get; set; }
 
         public int Asociacion_Registro_Patronal { get; set; }

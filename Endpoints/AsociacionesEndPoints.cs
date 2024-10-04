@@ -29,7 +29,9 @@ namespace Nupre_API.Endpoints
             IOutputCacheStore outputCacheStore
             , IMapper mapper
             , IAlmacenadorArchivos almacenadorArchivos
-            , IRepositorioComunesDocumentosMaster repositorioDocumentos)
+            , IRepositorioComunesDocumentosMaster repositorioDocumentos, 
+            IRepositorioProfesionalesActividadesTrans actividades
+            )
         {
             CrearDocumentoComun_DTO _numeroDocumento  = new CrearDocumentoComun_DTO();
             int documento;
@@ -52,6 +54,23 @@ namespace Nupre_API.Endpoints
 
             var id = await repositorio.Crear(solicitud);
             await outputCacheStore.EvictByTagAsync("Solicitud-asociaciones-get", default);
+
+            if(id != 0 )
+            {
+                var actividad = new Solicitudes_Actividades_Trans()
+                {
+                    
+                    Solicitud_Numero = transaccion.Solicitud_Numero,
+                    Solicitud_Tipo_Numero = 1,
+                    Actividad_Contenido = "N/A",
+                    Sometimiento_Secuencia = 1,
+                    RegistroUsuario = "g.montero",
+                    RegistroEstado = "A"
+
+                };
+
+                await actividades.Crear(actividad);
+            }
 
 
 

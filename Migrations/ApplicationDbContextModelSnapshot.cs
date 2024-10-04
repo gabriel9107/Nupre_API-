@@ -148,9 +148,12 @@ namespace Nupre_API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Asociacion_Numero"));
 
-                    b.Property<string>("Asociacion")
+                    b.Property<string>("Asociacion_Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Asociacion_Registro_Patronal")
+                        .HasColumnType("int");
 
                     b.Property<string>("Descripcion")
                         .IsRequired()
@@ -362,11 +365,11 @@ namespace Nupre_API.Migrations
 
             modelBuilder.Entity("Nupre_API.Entidades.Profesionales_Solicitudes_Asociaciones_Tran", b =>
                 {
-                    b.Property<int>("Solicitud_Numero")
+                    b.Property<int>("Asociacion_ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Solicitud_Numero"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Asociacion_ID"));
 
                     b.Property<DateTime>("Asociacion_Asociado_Estado_Fecha")
                         .HasColumnType("datetime2");
@@ -403,7 +406,10 @@ namespace Nupre_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Solicitud_Numero");
+                    b.Property<int>("Solicitud_Numero")
+                        .HasColumnType("int");
+
+                    b.HasKey("Asociacion_ID");
 
                     b.ToTable("Profesionales_Solicitudes_Asociaciones_Trans");
                 });

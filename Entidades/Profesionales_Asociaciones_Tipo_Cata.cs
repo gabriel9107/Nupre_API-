@@ -6,8 +6,9 @@
         //Numero de la asociacion 
         public int Asociacion_Numero { get; set; }
 
+        public int Asociacion_Registro_Patronal { get; set; }   
         //Nombre de la sociacion 
-        public string Asociacion { get; set; } = null!; 
+        public string Asociacion_Nombre { get; set; } = null!; 
 
         
         public string Descripcion { get; set; } = null!;

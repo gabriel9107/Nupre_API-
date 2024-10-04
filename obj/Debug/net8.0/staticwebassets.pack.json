@@ -13,6 +13,18 @@
       "PackagePath": "staticwebassets\\Asociaciones\\4c4f2112-93e5-4265-8d29-b5b551388178.pdf"
     },
     {
+      "Id": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\Asociaciones\\6b01f9b3-03ca-43a5-9281-e703f879f611.pdf",
+      "PackagePath": "staticwebassets\\Asociaciones\\6b01f9b3-03ca-43a5-9281-e703f879f611.pdf"
+    },
+    {
+      "Id": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\Asociaciones\\c512096b-db3f-4fed-a1fa-68562a50e254.pdf",
+      "PackagePath": "staticwebassets\\Asociaciones\\c512096b-db3f-4fed-a1fa-68562a50e254.pdf"
+    },
+    {
+      "Id": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\Asociaciones\\db341245-e38e-4ac3-b47b-b179f30246dc.pdf",
+      "PackagePath": "staticwebassets\\Asociaciones\\db341245-e38e-4ac3-b47b-b179f30246dc.pdf"
+    },
+    {
       "Id": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\Titulacion_Especialidades\\054103e1-5c2f-4b2e-ab62-c74d62165321.pdf",
       "PackagePath": "staticwebassets\\Titulacion_Especialidades\\054103e1-5c2f-4b2e-ab62-c74d62165321.pdf"
     },
@@ -51,6 +63,14 @@
     {
       "Id": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\Titulacion_Especialidades\\d1591092-3a21-453a-a9e7-daf9cb4f1983.pdf",
       "PackagePath": "staticwebassets\\Titulacion_Especialidades\\d1591092-3a21-453a-a9e7-daf9cb4f1983.pdf"
+    },
+    {
+      "Id": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\Titulacion_Especialidades\\ec2994ae-fcf4-4ae8-b435-628bff50ca7d.pdf",
+      "PackagePath": "staticwebassets\\Titulacion_Especialidades\\ec2994ae-fcf4-4ae8-b435-628bff50ca7d.pdf"
+    },
+    {
+      "Id": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\Titulacion_Especialidades\\f12a322b-a698-4f73-b968-dc4264590402.pdf",
+      "PackagePath": "staticwebassets\\Titulacion_Especialidades\\f12a322b-a698-4f73-b968-dc4264590402.pdf"
     },
     {
       "Id": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\Titulacion_Especialidades\\f309a242-1d93-417f-8a0a-594a21873c7b.pdf",
@@ -129,6 +149,14 @@
       "PackagePath": "staticwebassets\\solicitud\\aaea3e42-8b9b-4bc8-b28e-c838fdf2b81d.pdf"
     },
     {
+      "Id": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\solicitud\\b1491882-7c60-4a37-a9e2-00a39501b05e.pdf",
+      "PackagePath": "staticwebassets\\solicitud\\b1491882-7c60-4a37-a9e2-00a39501b05e.pdf"
+    },
+    {
+      "Id": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\solicitud\\b73715db-8d9d-4327-a84a-94b761f51ae4.pdf",
+      "PackagePath": "staticwebassets\\solicitud\\b73715db-8d9d-4327-a84a-94b761f51ae4.pdf"
+    },
+    {
       "Id": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\solicitud\\bd4dc63b-e53d-4a06-8abe-3f61093b4a14.pdf",
       "PackagePath": "staticwebassets\\solicitud\\bd4dc63b-e53d-4a06-8abe-3f61093b4a14.pdf"
     },
@@ -161,6 +189,10 @@
       "PackagePath": "staticwebassets\\solicitud\\cf69e8db-8d2d-40d5-b310-86e386325eae.pdf"
     },
     {
+      "Id": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\solicitud\\d1cad3a1-b15d-4462-b63d-beb2fe2befeb.pdf",
+      "PackagePath": "staticwebassets\\solicitud\\d1cad3a1-b15d-4462-b63d-beb2fe2befeb.pdf"
+    },
+    {
       "Id": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\solicitud\\e0c427f9-4415-4051-83c0-7d6c25583f97.pdf",
       "PackagePath": "staticwebassets\\solicitud\\e0c427f9-4415-4051-83c0-7d6c25583f97.pdf"
     },
@@ -179,6 +211,10 @@
     {
       "Id": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\solicitud\\f92f520f-8004-4dd8-9e17-94c5170ae782.pdf",
       "PackagePath": "staticwebassets\\solicitud\\f92f520f-8004-4dd8-9e17-94c5170ae782.pdf"
+    },
+    {
+      "Id": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\solicitud\\fa01d1e7-7522-4fb3-afec-de1e88c28c18.pdf",
+      "PackagePath": "staticwebassets\\solicitud\\fa01d1e7-7522-4fb3-afec-de1e88c28c18.pdf"
     },
     {
       "Id": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\solicitud\\fc49d1dc-1e95-4938-b0b6-137234986f76.pdf",

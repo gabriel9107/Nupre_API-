@@ -16,7 +16,7 @@ namespace Nupre_API.Endpoints
         {
 
 
-            
+
             group.MapGet("/", ObtenerTodos).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(15)).Tag("solicitudes-get")); ;
             group.MapGet("obtenerSolicitud", ObtenerTodosFiltrada);
             group.MapGet("obtenerSolicitudPorId/{id:int}", ObtenerPorId);
@@ -38,7 +38,7 @@ namespace Nupre_API.Endpoints
             IRepositorioProfesionalesSolicitudesTrans repositorio,
                         IOutputCacheStore outputCacheStore,
 
-            IMapper mapper, IAlmacenadorArchivos almacenadorArchivos, IRepositorioComunesDocumentosMaster repositorioDocumento, IRepositorioSolicitudes_Actividades_Trans actividades)
+            IMapper mapper, IAlmacenadorArchivos almacenadorArchivos, IRepositorioComunesDocumentosMaster repositorioDocumento, IRepositorioProfesionalesActividadesTrans actividades)
         {
 
 
@@ -56,7 +56,7 @@ namespace Nupre_API.Endpoints
                 if (_numeroDocumentoCedula is not null)
 
                     _numeroDocumentoCedula.Tipo_Documento = 1;
-                    
+
                 _nomeDocumentoCedula = await repositorioDocumento.CrearDocumento(_numeroDocumentoCedula);
 
 
@@ -66,19 +66,36 @@ namespace Nupre_API.Endpoints
                 _nomeDocumentoExequatur = await repositorioDocumento.CrearDocumento(_numeroDocumentoCedula);
 
                 _solicitud.Profesional_Documento_Cedula_Numero = _nomeDocumentoCedula;
-                _solicitud.Solicitud_Certificado_Numero = _numeroDocumentoExequatur.ToString(); 
+                _solicitud.Solicitud_Certificado_Numero = _numeroDocumentoExequatur.ToString();
             }
 
             //Completar datos para prueba 
 
             var id = await repositorio.Crear(_solicitud);
 
+            //agreamos la activad 
+
+            var actividad = new Solicitudes_Actividades_Trans()
+            {
+                //Actividad_Secuencia = 1,
+                Solicitud_Numero = _solicitud.Solicitud_Numero,
+                Solicitud_Tipo_Numero = 1,
+                Actividad_Contenido = "N/A",
+                Sometimiento_Secuencia = 1, 
+                RegistroUsuario = _solicitud.Registro_Usuario, 
+                RegistroEstado = "A"
+
+            };
+
+            await actividades.Crear(actividad);
+
+
             await outputCacheStore.EvictByTagAsync("solicitudes-get", default);
 
             var actorDto = mapper.Map<crearSolicituDTO>(_solicitud);
 
- 
-             
+
+
 
             return TypedResults.Created($"/{id}", actorDto);
         }
@@ -88,14 +105,14 @@ namespace Nupre_API.Endpoints
 
         static async Task<Ok<List<Profesionales_Solicitudes_Tran>>> ObtenerTodosFiltrada(
              IRepositorioProfesionalesSolicitudesTrans repositorio
-            , [AsParameters]  Profesionales_Filtro_Listado_DTO filtros, IMapper mapper
+            , [AsParameters] Profesionales_Filtro_Listado_DTO filtros, IMapper mapper
             )
         {
 
 
             filtros.PageIndex = filtros.PageSize * (filtros.Draw - 1);
             var resultado = await repositorio.getrequestsbyuser(filtros);
-             
+
             return TypedResults.Ok(resultado);
 
 
@@ -110,7 +127,7 @@ namespace Nupre_API.Endpoints
 
         }
 
-         
+
 
 
         //static async Task<Results<Ok<DetalleSolicitudDTO>, NotFound>> obtenerDetalleSolicitud(IRepositorioProfesionalesSolicitudesTrans repositorio, int solicitudNumero)

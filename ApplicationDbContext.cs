@@ -85,7 +85,7 @@ namespace Nupre_API
             });
             modelBuilder.Entity<Profesionales_Solicitudes_Asociaciones_Tran>().HasKey(entity => new
             {
-                entity.Solicitud_Numero
+                entity.Asociacion_ID
             });
             modelBuilder.Entity<Profesionales_Solicitudes_Localidades_Tran>().HasKey(entity => new
             {

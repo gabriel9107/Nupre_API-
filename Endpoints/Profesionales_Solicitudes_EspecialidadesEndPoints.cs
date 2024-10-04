@@ -23,7 +23,7 @@ namespace Nupre_API.Endpoints
 
   
         public static async Task<Created<CrearProfesion_Especialidad_DTO>> Crear([FromForm] CrearProfesion_Especialidad_DTO solicitud, IRepositorioProfesionalesEspecialidadesTrans repositorio, 
-            IMapper mapper,IAlmacenadorArchivos almacenadorArchivos )
+            IMapper mapper,IAlmacenadorArchivos almacenadorArchivos, IRepositorioProfesionalesActividadesTrans actividades )
         {
 
 
@@ -46,6 +46,27 @@ namespace Nupre_API.Endpoints
 
 
             var id = await repositorio.Crear(_solicitud);
+                
+            if(id != 0)
+            {
+
+                var actividad = new Solicitudes_Actividades_Trans()
+                {
+                 
+                    Solicitud_Numero = _solicitud.Solicitud_Numero,
+                    Solicitud_Tipo_Numero = 2,
+                    Actividad_Contenido = "N/A",
+                    Sometimiento_Secuencia = 1,
+                    RegistroUsuario = _solicitud.Registro_Usuario,
+                    RegistroEstado = "A"
+
+                };
+
+                await actividades.Crear(actividad);
+            }
+
+
+
             return TypedResults.Created($"/{id}", solicitud);
         }
 
