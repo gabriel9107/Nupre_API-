@@ -17,7 +17,7 @@ namespace Nupre_API.Repositorio
 
             var sp = new Profesionales_Solicitudes_Tran(); 
             sp.Solicitud_Numero = trans.Solicitud_Numero;
-
+            trans.Asociacion_Asociado_Estado_Nota = "n/a";
 
             trans.Registro_Fecha = new DateTime(2022, 1, 1);
             trans.Registro_Estado = "A";

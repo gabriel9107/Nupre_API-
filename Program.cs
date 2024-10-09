@@ -85,10 +85,7 @@ app.MapGroup("/ciudadano").mapCiudadano();
 app.MapGroup("/asociaciones/").mapAsociaciones();
 app.MapGroup("/localidades").mapProfesionales_Solicitudes_Localidades();
 app.MapGroup("/Actividades").mapActividades();
-
-
-
-
+   
 
 app.Run();
  

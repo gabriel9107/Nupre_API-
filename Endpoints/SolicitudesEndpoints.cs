@@ -56,6 +56,7 @@ namespace Nupre_API.Endpoints
                 if (_numeroDocumentoCedula is not null)
 
                     _numeroDocumentoCedula.Tipo_Documento = 1;
+                _numeroDocumentoCedula.solicitud_numero = _solicitud.Solicitud_Numero; 
 
                 _nomeDocumentoCedula = await repositorioDocumento.CrearDocumento(_numeroDocumentoCedula);
 
@@ -63,6 +64,7 @@ namespace Nupre_API.Endpoints
                 _numeroDocumentoExequatur = await almacenadorArchivos.Almacenar_NombreArchivo(contenedor, solicitudes.Archivo_Exequatur);
                 if (_numeroDocumentoExequatur is not null)
                     _numeroDocumentoExequatur.Tipo_Documento = 2;
+                    _numeroDocumentoExequatur.solicitud_numero = _solicitud.Solicitud_Numero;
                 _nomeDocumentoExequatur = await repositorioDocumento.CrearDocumento(_numeroDocumentoCedula);
 
                 _solicitud.Profesional_Documento_Cedula_Numero = _nomeDocumentoCedula;
@@ -78,6 +80,7 @@ namespace Nupre_API.Endpoints
             var actividad = new Solicitudes_Actividades_Trans()
             {
                 //Actividad_Secuencia = 1,
+                Actividad_Numero = 1, 
                 Solicitud_Numero = _solicitud.Solicitud_Numero,
                 Solicitud_Tipo_Numero = 1,
                 Actividad_Contenido = "N/A",
@@ -151,12 +154,11 @@ namespace Nupre_API.Endpoints
             IMapper mapper)
         {
 
-            solicitudes.Registro_Fecha = new DateTime(2022, 1, 1);
-            solicitudes.Registro_Estado = "A";
-            solicitudes.Registro_Usuario = "g.montero";
-            solicitudes.Solicitud_Usuario_Cuenta = "g.montero";
-            solicitudes.Solicitud_Estado_Numero = 1;
-            solicitudes.Solicitud_Estado_Fecha = new DateTime(2022, 1, 1); ;
+            //solicitudes.Registro_Fecha = DateTime.Now;
+            //solicitudes.Registro_Estado = "A";
+            //solicitudes.Registro_Usuario = "g.montero";
+            //solicitudes.Solicitud_Usuario_Cuenta = "g.montero";
+            //solicitudes.Solicitud_Estado_Numero = 1;
 
 
             var _solicitud = mapper.Map<Profesionales_Solicitudes_Tran>(solicitudes);
@@ -186,12 +188,12 @@ namespace Nupre_API.Endpoints
         {
 
             //Completar datos para prueba 
-            solicitudes.Registro_Fecha = new DateTime(2022, 1, 1);
-            solicitudes.Registro_Estado = "A";
-            solicitudes.Registro_Usuario = "g.montero";
-            solicitudes.Solicitud_Usuario_Cuenta = "g.montero";
-            solicitudes.Solicitud_Estado_Numero = 1;
-            solicitudes.Solicitud_Estado_Fecha = new DateTime(2022, 1, 1); ;
+            //solicitudes.Registro_Fecha = new DateTime(2022, 1, 1);
+            //solicitudes.Registro_Estado = "A";
+            //solicitudes.Registro_Usuario = "g.montero";
+            //solicitudes.Solicitud_Usuario_Cuenta = "g.montero";
+            //solicitudes.Solicitud_Estado_Numero = 1;
+            //solicitudes.Solicitud_Estado_Fecha = new DateTime(2022, 1, 1); ;
 
 
 

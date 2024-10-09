@@ -6,6 +6,6 @@
         public string Actividad_descripcion { get; set; } = null!; 
         public int Proceso_Orden { get; set; }
         public int Actividad_Completa { get; set; } 
-        public decimal Porcentaje { get; set; }
+        public double Porcentaje { get; set; }
     }
 }

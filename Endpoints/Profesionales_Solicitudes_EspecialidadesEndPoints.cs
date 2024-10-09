@@ -49,20 +49,27 @@ namespace Nupre_API.Endpoints
                 
             if(id != 0)
             {
-
-                var actividad = new Solicitudes_Actividades_Trans()
+                var existe = await actividades.existe(_solicitud.Solicitud_Numero, 2);
+                if (existe == false)
                 {
-                 
-                    Solicitud_Numero = _solicitud.Solicitud_Numero,
-                    Solicitud_Tipo_Numero = 2,
-                    Actividad_Contenido = "N/A",
-                    Sometimiento_Secuencia = 1,
-                    RegistroUsuario = _solicitud.Registro_Usuario,
-                    RegistroEstado = "A"
+                    var actividad = new Solicitudes_Actividades_Trans()
+                    {
+                        Actividad_Numero = 2,
+                        Solicitud_Numero = _solicitud.Solicitud_Numero,
+                        Solicitud_Tipo_Numero = 1,
+                        Actividad_Contenido = "N/A",
+                        Sometimiento_Secuencia = 1,
+                        RegistroUsuario = _solicitud.Registro_Usuario,
+                        RegistroEstado = "A"
 
-                };
+                    };
 
-                await actividades.Crear(actividad);
+                    await actividades.Crear(actividad);
+
+                }
+               
+               
+               
             }
 
 

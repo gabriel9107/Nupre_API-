@@ -59,7 +59,7 @@ namespace Nupre_API.Endpoints
             {
                 var actividad = new Solicitudes_Actividades_Trans()
                 {
-                    
+                    Actividad_Numero = 3, 
                     Solicitud_Numero = transaccion.Solicitud_Numero,
                     Solicitud_Tipo_Numero = 1,
                     Actividad_Contenido = "N/A",

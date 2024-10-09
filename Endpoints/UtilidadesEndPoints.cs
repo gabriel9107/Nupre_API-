@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
+using Nupre_API.DTOs;
 using Nupre_API.Entidades;
 //using Nupre_API.Models;
 using Nupre_API.Repositorio;
+using Nupre_API.Utilidades;
+using System.IO;
 
 namespace Nupre_API.Endpoints
 {
@@ -71,6 +75,32 @@ namespace Nupre_API.Endpoints
            var detalleEstado = await repositorio.obtenerEstadosPorId(idEstado);
             return TypedResults.Ok(detalleEstado); 
         }
+
+        //static async Task<Results<FileStreamHttpResult, NotFound>> obtenerDocumento(IRepositorioComunesDocumentosMaster repositorio, Documento_filtro filtro)
+        //{
+        //    var query = repositorio.obtenerRutaDocumento(filtro);
+        //    if (query is null)
+        //    {
+        //        return TypedResults.NotFound(); 
+        //    }
+
+        //    var filesbytes = ImpersonationDemo.ReadFile(query.Result);
+        //    return TypedResults.File(filesbytes, "application/pdf" );
+
+
+        //} 
+
+        //static async Task<Ok<File>> ontenerDocumento(IRepositorioComunesDocumentosMaster repositorio, Documento_filtro documento)
+        //{
+        //    var query = await repositorio.obtenerRutaDocumento(documento);
+        //    var fileBytes = ImpersonationDemo.ReadFile(query);
+        //    return TypedResults.File(fileBytes, "application/pdf");
+                
+                
+
+        //}
+
+
 
     }
 }

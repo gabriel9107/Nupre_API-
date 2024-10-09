@@ -1,5 +1,8 @@
 ﻿
+using Microsoft.AspNetCore.Mvc;
 using Nupre_API.DTOs;
+using Nupre_API.Models;
+using Nupre_API.Utilidades;
 
 namespace Nupre_API.Servicios
 {
@@ -36,6 +39,11 @@ namespace Nupre_API.Servicios
 
 
          }
+
+
+       
+
+
 
         public async Task<CrearDocumentoComun_DTO> Almacenar_NombreArchivo(string contenedor, IFormFile archivo)
         {

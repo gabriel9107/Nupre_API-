@@ -1,4 +1,6 @@
-﻿ 
+﻿
+using System.ComponentModel.DataAnnotations;
+
 namespace Nupre_API.Entidades
 {
     public class Profesionales_Solicitudes_Especialidades_Trans
@@ -10,14 +12,14 @@ namespace Nupre_API.Entidades
         /// </summary>
         public short Especialidad_Numero { get; set; }
 
-        public byte Especialidad_Tipo_Numero { get; set; } 
-
-        public int Especialidad_Periodo { get; set; }
+        public byte Especialidad_Tipo_Numero { get; set; }
+        
+        public string? Especialidad_Periodo { get; set; }
 
         public string Documento_Codigo { get; set; } = null!;
 
         public byte Especialidad_Estado_Numero { get; set; }
-
+        
         public DateTime Especialidad_Estado_Fecha { get; set; }
 
         public string? Especialidad_Estado_Nota { get; set; }

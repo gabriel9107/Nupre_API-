@@ -12,6 +12,7 @@ public partial class ComunesDocumentosMaster
     /// Es el código único que representa el documento dentro del sistema.
     /// </summary>
     public string DocumentoCodigo { get; set; } = null!;
+ 
 
     /// <summary>
     /// Es la ruta del servidor y carpeta donde se encuentra almacenado el documento.

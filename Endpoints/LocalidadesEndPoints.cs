@@ -13,7 +13,8 @@ namespace Nupre_API.Endpoints
         public static RouteGroupBuilder mapProfesionales_Solicitudes_Localidades(this RouteGroupBuilder group)
         {
 
-
+            group.MapPost("", Crear).DisableAntiforgery();
+            group.MapGet("obtenerLocalidad", BuscarPorId);
             return group;
         }
 

@@ -76,6 +76,7 @@ namespace Nupre_API.Repositorio
             trans.Registro_Usuario = "g.montero";
             trans.Registro_Estado = "A";
             trans.Especialidad_Estado_Numero = 1;
+            //trans.Especialidad_Periodo = new  DateTime(trans.Especialidad_Periodo.Year, trans.Especialidad_Periodo.Month, trans.Especialidad_Periodo.Day);
             //trans.SolicitudNumeroNavigation.Solicitud_Numero = trans.Solicitud_Numero; 
 
 

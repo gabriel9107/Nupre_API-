@@ -9,7 +9,7 @@ namespace Nupre_API.Migrations
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
-        {
+        {   
             migrationBuilder.RenameColumn(
                 name: "Asociacion",
                 table: "Profesionales_Asociaciones_Catas",

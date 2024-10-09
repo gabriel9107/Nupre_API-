@@ -206,6 +206,9 @@ namespace Nupre_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Solicitud_Numero")
+                        .HasColumnType("int");
+
                     b.Property<int>("Tipo_Documento")
                         .HasColumnType("int");
 
@@ -438,8 +441,9 @@ namespace Nupre_API.Migrations
                     b.Property<byte>("Especialidad_Estado_Numero")
                         .HasColumnType("tinyint");
 
-                    b.Property<int>("Especialidad_Periodo")
-                        .HasColumnType("int");
+                    b.Property<string>("Especialidad_Periodo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<byte>("Especialidad_Tipo_Numero")
                         .HasColumnType("tinyint");
