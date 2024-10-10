@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+yoyhDItjT3ya2ZGy83nMC6saPDZvHmfQkkwlZ9/nJA=",
+  "Hash": "qW/7h0gDzutYf4ACgyB2TQKIBphEKa/OfDexVTXUO4U=",
   "Source": "Nupre_API",
   "BasePath": "_content/Nupre_API",
   "Mode": "Default",
@@ -167,6 +167,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Asociaciones\\702af496-baad-4ee2-9529-3c99fc4e5b39.pdf"
+    },
+    {
+      "Identity": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\Asociaciones\\a2017f06-c3d9-48c2-a30f-7699ef02ca73.pdf",
+      "SourceId": "Nupre_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\",
+      "BasePath": "_content/Nupre_API",
+      "RelativePath": "Asociaciones/a2017f06-c3d9-48c2-a30f-7699ef02ca73.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Asociaciones\\a2017f06-c3d9-48c2-a30f-7699ef02ca73.pdf"
     },
     {
       "Identity": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\Asociaciones\\c21071a6-7b38-4b5a-8470-0a5613a57808.pdf",
@@ -1252,6 +1271,25 @@
       "OriginalItemSpec": "wwwroot\\Titulacion_Especialidades\\618a5844-bd59-4628-aad2-e63fa5c1f240.pdf"
     },
     {
+      "Identity": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\Titulacion_Especialidades\\7676ca81-fc7d-41b1-bc62-e4d3f00e7287.pdf",
+      "SourceId": "Nupre_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\",
+      "BasePath": "_content/Nupre_API",
+      "RelativePath": "Titulacion_Especialidades/7676ca81-fc7d-41b1-bc62-e4d3f00e7287.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Titulacion_Especialidades\\7676ca81-fc7d-41b1-bc62-e4d3f00e7287.pdf"
+    },
+    {
       "Identity": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\Titulacion_Especialidades\\826a0993-5e3f-406e-acdf-c99c178cd199.pdf",
       "SourceId": "Nupre_API",
       "SourceType": "Discovered",
@@ -1288,6 +1326,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Titulacion_Especialidades\\83f68761-0e5c-404a-b8cc-e679be8b7cc6.pdf"
+    },
+    {
+      "Identity": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\Titulacion_Especialidades\\8b33798e-b0ca-4de5-be90-849d5d8ca79f.pdf",
+      "SourceId": "Nupre_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\",
+      "BasePath": "_content/Nupre_API",
+      "RelativePath": "Titulacion_Especialidades/8b33798e-b0ca-4de5-be90-849d5d8ca79f.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Titulacion_Especialidades\\8b33798e-b0ca-4de5-be90-849d5d8ca79f.pdf"
     },
     {
       "Identity": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\Titulacion_Especialidades\\9cde6687-abb7-459b-b98e-8f992284d108.pdf",
@@ -1459,6 +1516,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Titulacion_Especialidades\\d1591092-3a21-453a-a9e7-daf9cb4f1983.pdf"
+    },
+    {
+      "Identity": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\Titulacion_Especialidades\\db6c2fdb-6384-41a5-88b0-77c8fbe5dcc5.pdf",
+      "SourceId": "Nupre_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\",
+      "BasePath": "_content/Nupre_API",
+      "RelativePath": "Titulacion_Especialidades/db6c2fdb-6384-41a5-88b0-77c8fbe5dcc5.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Titulacion_Especialidades\\db6c2fdb-6384-41a5-88b0-77c8fbe5dcc5.pdf"
     },
     {
       "Identity": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\Titulacion_Especialidades\\ec2994ae-fcf4-4ae8-b435-628bff50ca7d.pdf",

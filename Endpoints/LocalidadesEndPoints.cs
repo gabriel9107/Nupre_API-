@@ -33,10 +33,10 @@ namespace Nupre_API.Endpoints
         {
 
             var query = await repositorio.obtenerId(id);
-            if(query is null)
-            {
-                return TypedResults.NotFound(); 
-            }
+            //if(query is null)
+            //{
+            //    return TypedResults.NotFound(); 
+            //}
             return TypedResults.Ok(query);
         }
     }

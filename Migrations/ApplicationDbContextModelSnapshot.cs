@@ -93,6 +93,37 @@ namespace Nupre_API.Migrations
                     b.ToTable("Comunes_Provincias_Cata");
                 });
 
+            modelBuilder.Entity("Nupre_API.Entidades.Prestadoras_Master", b =>
+                {
+                    b.Property<int>("Prestadora_Numero")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Prestadora_Numero"));
+
+                    b.Property<int>("Prestadora_Categoria_Numero")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Prestadora_Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Registro_Estado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Registro_Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Registro_Usuario")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Prestadora_Numero");
+
+                    b.ToTable("Prestadoras_Master");
+                });
+
             modelBuilder.Entity("Nupre_API.Entidades.Profesionales_Actividades_Tipos_Cata", b =>
                 {
                     b.Property<int>("Actividad_Numero")
@@ -442,7 +473,6 @@ namespace Nupre_API.Migrations
                         .HasColumnType("tinyint");
 
                     b.Property<string>("Especialidad_Periodo")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte>("Especialidad_Tipo_Numero")

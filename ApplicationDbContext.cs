@@ -100,6 +100,10 @@ namespace Nupre_API
             {
                 entity.Actividad_Numero
             });
+            modelBuilder.Entity<Prestadoras_Master>().HasKey(entity => new
+            {
+                entity.Prestadora_Numero
+            });
 
         }
 
@@ -131,6 +135,9 @@ namespace Nupre_API
         public DbSet<Solicitudes_Actividades_Trans> Profesionales_Solicitudes_Actividades_Trans { get; set; }
 
         public DbSet<Profesionales_Actividades_Tipos_Cata> Profesionales_Actividades_Tipos_Cata {  get; set; }
+
+
+        public DbSet<Prestadoras_Master> Prestadoras_Master { get; set; }   
 
 
 

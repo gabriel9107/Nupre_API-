@@ -76,9 +76,9 @@ namespace Nupre_API.Repositorio
             trans.Registro_Usuario = "g.montero";
             trans.Registro_Estado = "A";
             trans.Especialidad_Estado_Numero = 1;
-            //trans.Especialidad_Periodo = new  DateTime(trans.Especialidad_Periodo.Year, trans.Especialidad_Periodo.Month, trans.Especialidad_Periodo.Day);
-            //trans.SolicitudNumeroNavigation.Solicitud_Numero = trans.Solicitud_Numero; 
-
+            trans.Registro_Fecha = DateTime.Now;
+            trans.Especialidad_Estado_Fecha = DateTime.Now;
+            
 
 
             byte Especialidad_Tipo_Numero = await context.Profesionales_Especialidades_Cata.Where(x => x.Especialidad_Numero == trans.Especialidad_Numero).Select(s => s.Especialidad_Tipo_Numero).FirstOrDefaultAsync();

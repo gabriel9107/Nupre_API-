@@ -5,6 +5,7 @@ namespace Nupre_API.Entidades
 {
     public class Profesionales_Solicitudes_Especialidades_Trans
     {
+      
         public int Solicitud_Numero { get; set; }
 
         /// <summary>

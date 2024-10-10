@@ -76,6 +76,12 @@ namespace Nupre_API.Endpoints
             return TypedResults.Ok(detalleEstado); 
         }
 
+        static async Task<Ok<List<Prestadoras_Master>>> obtenerListadoPrestadores(IRepositorioPrestadoras_Master repositorio)
+        {
+            var query = await repositorio.obtenerPrestadoras();
+            return TypedResults.Ok(query);
+        }
+
         //static async Task<Results<FileStreamHttpResult, NotFound>> obtenerDocumento(IRepositorioComunesDocumentosMaster repositorio, Documento_filtro filtro)
         //{
         //    var query = repositorio.obtenerRutaDocumento(filtro);
