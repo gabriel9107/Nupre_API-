@@ -20,6 +20,7 @@ namespace Nupre_API.Endpoints
             group.MapGet("obtenerCatalogoProfesionales/{id}", obtenerCatalogoDeEspecilidades);
             group.MapGet("obtenerListadoEstado", obtenerListadoEstado);
             group.MapGet("ObtenerDescripcionEstado/{idEstado}", ObtenerDescripcionEstado);
+            group.MapGet("obtenerListadoPrestadores", obtenerListadoPrestadores);
 
 
             return group;

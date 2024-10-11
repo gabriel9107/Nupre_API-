@@ -41,6 +41,7 @@ builder.Services.AddScoped<IRepositorioComunesDocumentosMaster, RepositorioComun
 builder.Services.AddScoped<IRepositorioProfesionalesAsociacionesTrans, RepositorioProfesionalesAsociacionesTrans>();
 builder.Services.AddScoped<IRepositorioProfesionales_Solicitudes_Localidades_Tran, RepositorioProfesionales_Solicitudes_Localidades_Tran>();
 builder.Services.AddScoped<IRepositorioProfesionalesActividadesTrans, RepositorioProfesionalesActividadesTrans>();
+builder.Services.AddScoped<IRepositorioPrestadoras_Master, RepositorioPrestadoras_Master>(); 
 
 
 

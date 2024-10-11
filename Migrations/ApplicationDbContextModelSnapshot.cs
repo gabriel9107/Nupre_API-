@@ -504,14 +504,13 @@ namespace Nupre_API.Migrations
 
             modelBuilder.Entity("Nupre_API.Entidades.Profesionales_Solicitudes_Localidades_Tran", b =>
                 {
-                    b.Property<int>("Solicitud_Numero")
+                    b.Property<int>("Localidad_Secuencia")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Solicitud_Numero"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Localidad_Secuencia"));
 
                     b.Property<string>("Localidad_Detalle")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Localidad_Direccion")
@@ -519,18 +518,13 @@ namespace Nupre_API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Localidad_Prestadora_Nombre")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Localidad_Secuencia")
-                        .HasColumnType("int");
 
                     b.Property<string>("Localidad_Telefono1")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Localidad_Telefono2")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<short>("Municipio_Numero")
@@ -550,7 +544,10 @@ namespace Nupre_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Solicitud_Numero");
+                    b.Property<int>("Solicitud_Numero")
+                        .HasColumnType("int");
+
+                    b.HasKey("Localidad_Secuencia");
 
                     b.ToTable("Profesionales_Solicitudes_Localidades_Trans");
                 });

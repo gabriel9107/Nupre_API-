@@ -89,7 +89,7 @@ namespace Nupre_API
             });
             modelBuilder.Entity<Profesionales_Solicitudes_Localidades_Tran>().HasKey(entity => new
             {
-                entity.Solicitud_Numero
+                entity.Localidad_Secuencia
             });
 
             modelBuilder.Entity<Solicitudes_Actividades_Trans>().HasKey(entity => new

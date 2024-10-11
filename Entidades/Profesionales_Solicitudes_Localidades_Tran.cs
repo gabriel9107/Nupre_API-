@@ -3,13 +3,16 @@
     public class Profesionales_Solicitudes_Localidades_Tran
     {
 
+        /// <summary>
+        /// NUmero unico del registro de localides medicas 
+        /// </summary>
+        public int Localidad_Secuencia { get; set; }
 
         /// <summary>
         /// Número único de la Solicitud.
         /// </summary>
         public int Solicitud_Numero { get; set; }
 
-        public int Localidad_Secuencia { get; set; }
 
         /// <summary>
         /// Número único del prestador de servicio de salud que entrego los servicio (Institucional o Médico).
@@ -23,13 +26,13 @@
 
         public string Localidad_Direccion { get; set; } = null!;
 
-        public string Localidad_Detalle { get; set; } = null!;
+        public string? Localidad_Detalle { get; set; } = null!;
 
         public string Localidad_Telefono1 { get; set; } = null!;
 
-        public string Localidad_Telefono2 { get; set; } = null!;
+        public string? Localidad_Telefono2 { get; set; } 
 
-        public string Localidad_Prestadora_Nombre { get; set; } = null!;
+        public string? Localidad_Prestadora_Nombre { get; set; } = null!;
 
         /// <summary>
         /// Representa el estado en que se encuentra un registro en una tabla (A=Activo, I=Inactivo).

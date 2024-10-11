@@ -12,6 +12,12 @@ namespace Nupre_API.Repositorio
         }
 
 
+        public async Task<List<Profesionales_Solicitudes_Localidades_Tran>> ObtenerListaLocalidadesPoId(int solicitud_numero)
+        {
+            return await context.Profesionales_Solicitudes_Localidades_Trans.Where(x => x.Solicitud_Numero == solicitud_numero).ToListAsync();
+        }
+
+
         public async Task<Profesionales_Solicitudes_Localidades_Tran> obtenerId(int solicitud_numero)
         {
             return await context.Profesionales_Solicitudes_Localidades_Trans.Where(x => x.Solicitud_Numero == solicitud_numero).FirstOrDefaultAsync();
@@ -19,6 +25,13 @@ namespace Nupre_API.Repositorio
 
         public async Task<Profesionales_Solicitudes_Localidades_Tran> Crear(Profesionales_Solicitudes_Localidades_Tran trans)
         {
+
+
+            trans.Registro_Fecha = DateTime.Now;
+            trans.Registro_Estado = "A";
+            trans.Registro_Usuario = "g.montero";
+        
+
 
             context.Add(trans);
             await context.SaveChangesAsync();

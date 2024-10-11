@@ -31,6 +31,10 @@ namespace Nupre_API.Utilidades
             CreateMap<Solicitudes_Actividades_Trans, CrearSolicitudes_ActividadesDTO>();
             CreateMap<CrearSolicitudes_ActividadesDTO,Solicitudes_Actividades_Trans>();
 
+
+            //localides 
+            CreateMap<Profesionales_Solicitudes_Localidades_Tran, Crear_Localidades_DTO>(); 
+            CreateMap<Crear_Localidades_DTO, Profesionales_Solicitudes_Localidades_Tran>(); 
         }
 
     }
