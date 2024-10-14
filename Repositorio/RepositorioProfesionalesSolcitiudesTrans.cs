@@ -33,14 +33,14 @@ namespace Nupre_API.Repositorio
             if (query is not null)
             {
                 //verificamos que exista un numero de solicitud para este registro patronal
-                if(filtro.Solicitud_Numero != "" )
-                    return query.Where(a => a.Solicitud_Numero.ToString() == filtro.Solicitud_Numero).ToList();
+                if(filtro.Solicitud_Numero != "")
+                    return query.Where(a => a.Solicitud_Numero.ToString() == filtro.Solicitud_Numero || a.Profesional_Exequatur == filtro.Solicitud_Numero).ToList();
 
                 
                 //verificamos el filtro de la solicitud, en el caso de filtremos por todos : 0 : no aplicamos el filtro pertinente
                 if (filtro.Estado_Numero == 0)
                         if(filtro.AnioInicio is not null)
-                           return query.Where( a => a.Registro_Fecha >= filtro.AnioInicio && a.Registro_Fecha <= filtro.AnioFin).ToList();
+                           return query.Where( a => a.Registro_Fecha >= filtro.AnioInicio && a.Registro_Fecha <= filtro.AnioFin.Value.AddDays(1)).ToList();
                     return await query.ToListAsync();
                  query = query.Include(a => a.SolicitudEstadoNumeroNavigation).Where(x => x.Solicitud_Estado_Numero == filtro.Estado_Numero);
                 //query = query.Where(x => x.Solicitud_Fecha.Date <= filtro.AnioFin.Date && x.Solicitud_Fecha.Date >= filtro.AnioInicio.Date);

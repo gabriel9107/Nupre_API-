@@ -10,6 +10,7 @@ using Nupre_API.Entidades;
 using Nupre_API.Models;
 using Nupre_API.Repositorio;
 using Nupre_API.Servicios;
+using Nupre_API.Utilidades;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -54,7 +55,6 @@ builder.Services.AddAntiforgery();
 
 
 
-
 builder.Services.AddAutoMapper(typeof(Program));
 
 //Fin area de servicios 
@@ -71,6 +71,8 @@ if (builder.Environment.IsDevelopment())
 
 app.UseStaticFiles();
 
+
+app.UseExceptionHandleMiddleware();
 
 
 

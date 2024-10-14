@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qW/7h0gDzutYf4ACgyB2TQKIBphEKa/OfDexVTXUO4U=",
+  "Hash": "xHWHTA25fUfoKdpDczvxYDW8yKnFVahM55ZHdCGitwg=",
   "Source": "Nupre_API",
   "BasePath": "_content/Nupre_API",
   "Mode": "Default",
@@ -511,6 +511,25 @@
       "OriginalItemSpec": "wwwroot\\solicitud\\606327a2-2002-48c5-9518-98049352ee6a.pdf"
     },
     {
+      "Identity": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\solicitud\\6732b7cc-2e6f-464f-8dd0-10ed21da2880.pdf",
+      "SourceId": "Nupre_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\",
+      "BasePath": "_content/Nupre_API",
+      "RelativePath": "solicitud/6732b7cc-2e6f-464f-8dd0-10ed21da2880.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\solicitud\\6732b7cc-2e6f-464f-8dd0-10ed21da2880.pdf"
+    },
+    {
       "Identity": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\solicitud\\6d2779fb-b498-42a3-8ba9-0e3fcaeae1b9.pdf",
       "SourceId": "Nupre_API",
       "SourceType": "Discovered",
@@ -946,6 +965,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\solicitud\\e130a234-ebbf-4ab4-b49f-78e74230d465.pdf"
+    },
+    {
+      "Identity": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\solicitud\\f11904d3-04ff-4a4c-af54-fed1f086c082.pdf",
+      "SourceId": "Nupre_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\",
+      "BasePath": "_content/Nupre_API",
+      "RelativePath": "solicitud/f11904d3-04ff-4a4c-af54-fed1f086c082.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\solicitud\\f11904d3-04ff-4a4c-af54-fed1f086c082.pdf"
     },
     {
       "Identity": "C:\\w\\Sisalril\\NUPRE\\Nupre_API\\wwwroot\\solicitud\\f6d40e72-1f5e-446d-af36-27e9a701fb16.pdf",

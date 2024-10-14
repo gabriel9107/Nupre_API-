@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OutputCaching;
+using Microsoft.AspNetCore.StaticFiles;
 using Nupre_API.DTOs;
 using Nupre_API.Entidades;
 using Nupre_API.Repositorio;
@@ -18,6 +19,22 @@ namespace Nupre_API.Endpoints
 
 
             group.MapGet("/", ObtenerTodos).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(15)).Tag("solicitudes-get")); ;
+
+
+            group.MapGet("downloadFile", (IRepositorioComunesDocumentosMaster repositorio,[FromBody] Documento_filtro filtro) =>
+            {
+                 
+                var ruta = repositorio.obtenerRutaDocumento(filtro);
+
+                //if(ruta is null) {
+                //    return NoContent(); 
+
+                //}; 
+
+                
+                return Results.File(ruta.ToString()!, "application/pdf", "report.pdf");
+            });
+
             group.MapGet("obtenerSolicitud", ObtenerTodosFiltrada);
             group.MapGet("obtenerSolicitudPorId/{id:int}", ObtenerPorId);
             group.MapPost("/", Crear);
@@ -130,14 +147,7 @@ namespace Nupre_API.Endpoints
 
         }
 
-
-
-
-        //static async Task<Results<Ok<DetalleSolicitudDTO>, NotFound>> obtenerDetalleSolicitud(IRepositorioProfesionalesSolicitudesTrans repositorio, int solicitudNumero)
-        //{
-
-
-        //}
+                         
 
         static async Task<Results<Ok<Profesionales_Solicitudes_Tran>, NotFound>> ObtenerPorId(IRepositorioProfesionalesSolicitudesTrans repositorio, int id)
         {
@@ -154,11 +164,7 @@ namespace Nupre_API.Endpoints
             IMapper mapper)
         {
 
-            //solicitudes.Registro_Fecha = DateTime.Now;
-            //solicitudes.Registro_Estado = "A";
-            //solicitudes.Registro_Usuario = "g.montero";
-            //solicitudes.Solicitud_Usuario_Cuenta = "g.montero";
-            //solicitudes.Solicitud_Estado_Numero = 1;
+           
 
 
             var _solicitud = mapper.Map<Profesionales_Solicitudes_Tran>(solicitudes);
@@ -187,21 +193,54 @@ namespace Nupre_API.Endpoints
         static async Task<Created<Profesionales_Solicitudes_Tran>> Crear(Profesionales_Solicitudes_Tran solicitudes, IRepositorioProfesionalesSolicitudesTrans repositorio, IOutputCacheStore outputCacheStore)
         {
 
-            //Completar datos para prueba 
-            //solicitudes.Registro_Fecha = new DateTime(2022, 1, 1);
-            //solicitudes.Registro_Estado = "A";
-            //solicitudes.Registro_Usuario = "g.montero";
-            //solicitudes.Solicitud_Usuario_Cuenta = "g.montero";
-            //solicitudes.Solicitud_Estado_Numero = 1;
-            //solicitudes.Solicitud_Estado_Fecha = new DateTime(2022, 1, 1); ;
-
-
-
+         
 
             var id = await repositorio.Crear(solicitudes);
 
             await outputCacheStore.EvictByTagAsync("solicitudes-get", default);
             return TypedResults.Created($"/{id}", solicitudes);
+        }
+
+
+        //static async Task<File, NoContent> downloadFile(IRepositorioComunesDocumentosMaster repositorio,Documento_filtro filtro)
+        //{
+        //   var ruta = await  repositorio.obtenerRutaDocumento(filtro);
+
+        //    if (!File.Exists(ruta))
+        //    {
+        //        return Results.NoContent();
+        //    }
+        //    var fileBytes = await File.ReadAllBytesAsync(ruta);
+
+        //    // Create a FileToDownload object
+        //    var fileToDownload = new FileToDownload
+        //    {
+        //        FileName = $"Documento{filtro.Solicitud_numero}",
+        //        FilePath = ruta,
+        //        FileContent = fileBytes
+        //    };
+
+        //    var contentType = "sk";
+
+        //    // Set the appropriate content type based on the file extension
+
+
+        //    return Results.File(fileToDownload.FileContent, contentType, fileToDownload.FileName, true);
+
+
+
+
+        //}
+        private static string GetContentType(string filename)
+        {
+            var provider = new FileExtensionContentTypeProvider();
+            string contentType;
+            if (!provider.TryGetContentType(filename, out contentType))
+            {
+                contentType
+         = "application/octet-stream"; // Default content type
+            }
+            return contentType;
         }
         static async Task<Results<NoContent, NotFound>> Actualizar(IRepositorioProfesionalesSolicitudesTrans repositorio,
             int id, Profesionales_Solicitudes_Tran trans, IOutputCacheStore outputCacheStore)
