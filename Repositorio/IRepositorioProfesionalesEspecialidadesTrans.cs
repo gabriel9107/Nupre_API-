@@ -7,6 +7,7 @@ namespace Nupre_API.Repositorio
     {
         Task<Profesionales_Solicitudes_Especialidades_Trans> obtenerTitulacionPorId(int numero_Solicitud);
         Task<List<DetalleProfesionales_DTO>> ObtenerTitulacionPorSolicitud(int numero_Solicitud);
+        Task<DetalleProfesionales_DTO> ObtenerPorId(int numero_Solicitud);
         Task<int> Crear(Profesionales_Solicitudes_Especialidades_Trans trans);
         Task Actualizar(Profesionales_Solicitudes_Especialidades_Trans trans);
 

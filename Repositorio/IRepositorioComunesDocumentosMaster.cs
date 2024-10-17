@@ -6,5 +6,6 @@ namespace Nupre_API.Repositorio
     {
         Task<int> CrearDocumento(CrearDocumentoComun_DTO documento);
         Task<string> obtenerRutaDocumento(Documento_filtro trans);
+        Task<string> obtenerRutaDocumentoByid(int id);
     }
 }

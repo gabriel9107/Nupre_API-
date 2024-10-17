@@ -3,6 +3,8 @@
 
     public class crearSolicituDTO
     {
+
+        public int? Solicitud_Numero {  get; set; }
         public string Profesional_Nombre_Completo { get; set; }
         public string? Profesional_Cedula { get; set; }
 

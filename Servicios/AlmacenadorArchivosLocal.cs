@@ -67,6 +67,7 @@ namespace Nupre_API.Servicios
             {
                 Nombre = nombreArchivo,
                 Documento_ruta = ruta
+                
 
             };
             return documento;

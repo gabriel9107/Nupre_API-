@@ -5,8 +5,10 @@ using Microsoft.AspNetCore.OutputCaching;
 using Microsoft.AspNetCore.StaticFiles;
 using Nupre_API.DTOs;
 using Nupre_API.Entidades;
+using Nupre_API.Models;
 using Nupre_API.Repositorio;
 using Nupre_API.Servicios;
+using System.Threading.Tasks;
 
 namespace Nupre_API.Endpoints
 {
@@ -21,23 +23,26 @@ namespace Nupre_API.Endpoints
             group.MapGet("/", ObtenerTodos).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(15)).Tag("solicitudes-get")); ;
 
 
-            group.MapGet("downloadFile", (IRepositorioComunesDocumentosMaster repositorio,[FromBody] Documento_filtro filtro) =>
+            group.MapGet("downloadFile/{id}", (int id, IRepositorioComunesDocumentosMaster repositorio) =>
             {
-                 
-                var ruta = repositorio.obtenerRutaDocumento(filtro);
 
-                //if(ruta is null) {
-                //    return NoContent(); 
+                var ruta = repositorio.obtenerRutaDocumentoByid(id).Result;
 
-                //}; 
+                if (ruta is null)
+                {
+                    return null;
 
-                
+                };
+
+
                 return Results.File(ruta.ToString()!, "application/pdf", "report.pdf");
             });
 
             group.MapGet("obtenerSolicitud", ObtenerTodosFiltrada);
             group.MapGet("obtenerSolicitudPorId/{id:int}", ObtenerPorId);
             group.MapPost("/", Crear);
+
+            group.MapGet("someterSolicitud", someterSolicitud);
             group.MapPost("crearSolicituDocumento", CrearSolicitudDocumento)
 
                 .DisableAntiforgery();
@@ -45,7 +50,7 @@ namespace Nupre_API.Endpoints
             group.MapPost("prueba", CrearSolicitudPrueba)
                 .DisableAntiforgery();
             ;
-            group.MapPut("/{id:int}", Actualizar);
+            group.MapPost("actualizar", Actualizar).DisableAntiforgery(); ;
             return group;
         }
 
@@ -65,7 +70,11 @@ namespace Nupre_API.Endpoints
             int _nomeDocumentoExequatur;
 
 
+
+
+
             var _solicitud = mapper.Map<Profesionales_Solicitudes_Tran>(solicitudes);
+            var id = await repositorio.Crear(_solicitud);
 
             if (solicitudes.Archivo_Cedula is not null && solicitudes.Archivo_Exequatur is not null)
             {
@@ -73,7 +82,7 @@ namespace Nupre_API.Endpoints
                 if (_numeroDocumentoCedula is not null)
 
                     _numeroDocumentoCedula.Tipo_Documento = 1;
-                _numeroDocumentoCedula.solicitud_numero = _solicitud.Solicitud_Numero; 
+                _numeroDocumentoCedula.solicitud_numero = id;
 
                 _nomeDocumentoCedula = await repositorioDocumento.CrearDocumento(_numeroDocumentoCedula);
 
@@ -81,28 +90,22 @@ namespace Nupre_API.Endpoints
                 _numeroDocumentoExequatur = await almacenadorArchivos.Almacenar_NombreArchivo(contenedor, solicitudes.Archivo_Exequatur);
                 if (_numeroDocumentoExequatur is not null)
                     _numeroDocumentoExequatur.Tipo_Documento = 2;
-                    _numeroDocumentoExequatur.solicitud_numero = _solicitud.Solicitud_Numero;
+                _numeroDocumentoExequatur.solicitud_numero = id;
                 _nomeDocumentoExequatur = await repositorioDocumento.CrearDocumento(_numeroDocumentoCedula);
 
                 _solicitud.Profesional_Documento_Cedula_Numero = _nomeDocumentoCedula;
-                _solicitud.Solicitud_Certificado_Numero = _numeroDocumentoExequatur.ToString();
+                _solicitud.Solicitud_Certificado_Numero = _nomeDocumentoExequatur.ToString();
             }
-
-            //Completar datos para prueba 
-
-            var id = await repositorio.Crear(_solicitud);
-
-            //agreamos la activad 
 
             var actividad = new Solicitudes_Actividades_Trans()
             {
                 //Actividad_Secuencia = 1,
-                Actividad_Numero = 1, 
+                Actividad_Numero = 1,
                 Solicitud_Numero = _solicitud.Solicitud_Numero,
                 Solicitud_Tipo_Numero = 1,
                 Actividad_Contenido = "N/A",
-                Sometimiento_Secuencia = 1, 
-                RegistroUsuario = _solicitud.Registro_Usuario, 
+                Sometimiento_Secuencia = 1,
+                RegistroUsuario = _solicitud.Registro_Usuario,
                 RegistroEstado = "A"
 
             };
@@ -147,7 +150,7 @@ namespace Nupre_API.Endpoints
 
         }
 
-                         
+
 
         static async Task<Results<Ok<Profesionales_Solicitudes_Tran>, NotFound>> ObtenerPorId(IRepositorioProfesionalesSolicitudesTrans repositorio, int id)
         {
@@ -164,7 +167,7 @@ namespace Nupre_API.Endpoints
             IMapper mapper)
         {
 
-           
+
 
 
             var _solicitud = mapper.Map<Profesionales_Solicitudes_Tran>(solicitudes);
@@ -190,10 +193,44 @@ namespace Nupre_API.Endpoints
             return TypedResults.Created($"/{id}", actorDto);
         }
 
+
+        static async Task<Results<NoContent, NotFound>> someterSolicitud(int solicitud, IRepositorioProfesionalesSolicitudesTrans repositorio,
+            IRepositorioProfesionalesActividadesTrans actividades,
+            IOutputCacheStore outputCacheStore)
+        {
+
+
+
+            var id = await repositorio.SometerSolicitud(solicitud);
+
+
+
+            if (id == false)
+            {
+                return TypedResults.NotFound();
+            }
+            var actividad = new Solicitudes_Actividades_Trans()
+            {
+                //Actividad_Secuencia = 1,
+                Actividad_Numero = 8,
+                Solicitud_Numero = solicitud,
+                Solicitud_Tipo_Numero = 1,
+                Actividad_Contenido = "N/A",
+                Sometimiento_Secuencia = 1,
+                RegistroUsuario = "g.montero",
+
+                RegistroEstado = "A"
+
+            };
+
+            await actividades.Crear(actividad);
+
+            return TypedResults.NoContent();
+        }
         static async Task<Created<Profesionales_Solicitudes_Tran>> Crear(Profesionales_Solicitudes_Tran solicitudes, IRepositorioProfesionalesSolicitudesTrans repositorio, IOutputCacheStore outputCacheStore)
         {
 
-         
+
 
             var id = await repositorio.Crear(solicitudes);
 
@@ -243,14 +280,28 @@ namespace Nupre_API.Endpoints
             return contentType;
         }
         static async Task<Results<NoContent, NotFound>> Actualizar(IRepositorioProfesionalesSolicitudesTrans repositorio,
-            int id, Profesionales_Solicitudes_Tran trans, IOutputCacheStore outputCacheStore)
+
+            //AlmacenadorArchivosLocal RepositorioArchivos,
+            Update_Solicitud_DTO trans, IOutputCacheStore outputCacheStore,  IMapper mapper)
         {
-            var existe = await repositorio.Existe(id);
+            if (trans.Solicitud_Numero == null)
+            {
+                return TypedResults.NoContent();
+            }
+
+            var existe = await repositorio.Existe(trans.Solicitud_Numero);
             if (!existe)
             {
                 return TypedResults.NotFound();
             }
-            await repositorio.Actualizar(trans);
+
+            var update = mapper.Map<Profesionales_Solicitudes_Tran>(trans); 
+           
+            await repositorio.Actualizar(update);
+
+            //verficiamos que exista un archivo adjunto.  
+             
+            
             await outputCacheStore.EvictByTagAsync("solicitudes-get", default);
             return TypedResults.NoContent();
 

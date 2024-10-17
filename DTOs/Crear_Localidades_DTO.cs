@@ -5,6 +5,8 @@
         public int? Solicitud_Numero { get; set; }
         public int? Prestadora_Numero { get; set; }
 
+        public string Registro_Usuario { get; set; } = null!;
+
         /// <summary>
         /// Número único del municipio según catálogo de la JCE. (Donde está ubicado una entidad o persona, o sucedió un hecho).
         /// </summary>

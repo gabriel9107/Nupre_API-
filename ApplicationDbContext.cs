@@ -63,7 +63,7 @@ namespace Nupre_API
             });
             modelBuilder.Entity<Profesionales_Especialidades_Tipos_Cata>().HasKey(entity => new
             {
-                entity.Especialidad_Tipo_Numero
+                entity.Id
             });
 
 
@@ -77,7 +77,8 @@ namespace Nupre_API
             });
             modelBuilder.Entity<Profesionales_Solicitudes_Especialidades_Trans>().HasKey(entity => new
             {
-                entity.Solicitud_Numero, entity.Especialidad_Numero
+                entity.Id
+                //entity.Solicitud_Numero, entity.Especialidad_Numero
             });
             modelBuilder.Entity<Profesionales_Asociaciones_Tipo_Cata>().HasKey(entidad => new 
             {

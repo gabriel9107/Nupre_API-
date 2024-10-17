@@ -3,6 +3,7 @@
     public class CrearDocumentoComun_DTO
     {
         
+       public int? id {  get; set; }
         public int solicitud_numero { get;set; }
         public string Nombre { get; set; }
         

@@ -27,6 +27,15 @@ namespace Nupre_API.Repositorio
         public async Task<TssCiudadanosMaster> obtenerCiudadanoFiltrado(Ciudadano_FiltroDTO filtro)
         {
 
+
+            var verificar = await context.Profesionales_Solicitudes_Trans.Where(a => a.Profesional_Cedula == filtro.Cedula).FirstOrDefaultAsync();
+
+
+            if (verificar is not null)
+            {
+                 throw new InvalidOperationException($"Esiste un registro pendiente del afiliado Cedula : {filtro.Cedula}");
+            }
+
             var resultado = new TssCiudadanosMaster();
 
 
@@ -38,6 +47,7 @@ namespace Nupre_API.Repositorio
 
 
                 throw new InvalidOperationException($"No existe la cedula : {filtro.Cedula} consultada");
+                
             }
 
             //verificamos si la persona esta en la empresa que esta realizando el registro 

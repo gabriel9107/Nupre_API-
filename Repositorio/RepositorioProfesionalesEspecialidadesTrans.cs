@@ -95,5 +95,16 @@ namespace Nupre_API.Repositorio
             await context.SaveChangesAsync();
         }
 
+        public Task<DetalleProfesionales_DTO> ObtenerPorId(int numero_Solicitud)
+        {
+            throw new NotImplementedException();
+        }
+
+        //public async Task<DetalleProfesionales_DTO> ObtenerPorId(int numero_Solicitud)
+        //{
+        //    var query = await context.Profesionales_Solicitudes_Especialidades_Trans.Where(x => x.Id == numero_Solicitud).FirstOrDefaultAsync();
+
+
+        //}
     }
 }

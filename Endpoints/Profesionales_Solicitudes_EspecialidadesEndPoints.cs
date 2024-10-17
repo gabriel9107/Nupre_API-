@@ -17,6 +17,7 @@ namespace Nupre_API.Endpoints
         {
             group.MapPost("guardarTitulacion", Crear).DisableAntiforgery(); 
             group.MapGet("listadoTitulacion/{solicitud_numero}", obtenerListadoPorSolicitud);
+            group.MapGet("obtenerTitulacionByNumeroSolicitud", obtenerPorId);
             return group;
         }
 
@@ -97,7 +98,16 @@ namespace Nupre_API.Endpoints
             
             return TypedResults.Ok(titulos);
         }
-         
+
+
+        public static async Task<Ok<DetalleProfesionales_DTO>> obtenerPorId(IRepositorioProfesionalesEspecialidadesTrans repositorio, int solicitud_numero)
+        {
+
+            var titulos = await repositorio.ObtenerPorId(solicitud_numero);
+
+            return TypedResults.Ok(titulos);
+        }
+
 
 
     }

@@ -28,7 +28,7 @@ namespace Nupre_API.Endpoints
 
             var  post = mapper.Map<Profesionales_Solicitudes_Localidades_Tran>( trans );
 
-            if (post.Localidad_Secuencia != 0)
+            if (post.Localidad_Secuencia == 0)
             {
                 var existe = await actividades.existe(post.Solicitud_Numero, 4);
                 if (existe == false)

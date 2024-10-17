@@ -24,6 +24,19 @@ namespace Nupre_API.Repositorio
             return await context.Profesionales_Documento_Masters.Where(x => x.Solicitud_Numero == trans.Solicitud_numero && x.Tipo_Documento == trans.Tipo && x.Documento_Codigo == trans.documento_numero).Select(a => a.Documento_ruta).FirstOrDefaultAsync() ;
         }
 
+        public async Task<string> obtenerRutaDocumentoByid(int id)
+        {
+            var resultado =  await context.Profesionales_Documento_Masters.Where(x => x.Documento_Codigo == id).Select( a => a.Documento_ruta).FirstOrDefaultAsync();
+            if (resultado == null)
+            {
+                return null;
+            }
+            return resultado; 
+        }
+
+
+        
+
         public async Task<int> CrearDocumento(CrearDocumentoComun_DTO documento)
         {
             var _documento = new Profesionales_Documento_Master()
