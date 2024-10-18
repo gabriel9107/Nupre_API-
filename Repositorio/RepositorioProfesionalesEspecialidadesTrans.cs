@@ -40,6 +40,7 @@ namespace Nupre_API.Repositorio
             var result =   (from pa in query
                          select new DetalleProfesionales_DTO
                          {
+                             Id = pa.Id,    
                              Especialidad_Descripcion = pa.Especialidades_Cata.Especialidad_Descripcion,
                              Registro_Fecha = pa.Registro_Fecha,
                              Especialidad_Periodo = pa.Especialidad_Periodo.ToString(),
@@ -95,9 +96,24 @@ namespace Nupre_API.Repositorio
             await context.SaveChangesAsync();
         }
 
-        public Task<DetalleProfesionales_DTO> ObtenerPorId(int numero_Solicitud)
+        public async Task<DetalleProfesionales_DTO> ObtenerPorId(int numero_Solicitud)
         {
-            throw new NotImplementedException();
+            var pa = await context.Profesionales_Solicitudes_Especialidades_Trans.Where(a => a.Registro_Estado == "A" && a.Id == numero_Solicitud).FirstOrDefaultAsync();
+
+                 var result = new DetalleProfesionales_DTO
+                 {
+                     Id = pa.Id,
+                     Especialidad_Descripcion =   "N/A",
+                     Registro_Fecha = pa.Registro_Fecha,
+                     Especialidad_Periodo = pa.Especialidad_Periodo.ToString(),
+                     Especialidad_Tipo_Numero = pa.Especialidad_Tipo_Numero,
+                     Registro_Estado = pa.Registro_Estado,
+                     Solicitud_Numero = pa.Solicitud_Numero,
+                     Especialidad_Numero = pa.Especialidad_Numero
+                 };
+
+            return result;
+
         }
 
         //public async Task<DetalleProfesionales_DTO> ObtenerPorId(int numero_Solicitud)

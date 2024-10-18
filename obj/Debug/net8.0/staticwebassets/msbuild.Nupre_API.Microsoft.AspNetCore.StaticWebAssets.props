@@ -1264,6 +1264,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Titulacion_Especialidades\618a5844-bd59-4628-aad2-e63fa5c1f240.pdf))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Titulacion_Especialidades\71b05f1b-ab74-4661-b1b9-b01c09664981.pdf))">
+      <SourceType>Package</SourceType>
+      <SourceId>Nupre_API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Nupre_API</BasePath>
+      <RelativePath>Titulacion_Especialidades/71b05f1b-ab74-4661-b1b9-b01c09664981.pdf</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Titulacion_Especialidades\71b05f1b-ab74-4661-b1b9-b01c09664981.pdf))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Titulacion_Especialidades\7676ca81-fc7d-41b1-bc62-e4d3f00e7287.pdf))">
       <SourceType>Package</SourceType>
       <SourceId>Nupre_API</SourceId>
@@ -1551,6 +1567,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Titulacion_Especialidades\f309a242-1d93-417f-8a0a-594a21873c7b.pdf))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Titulacion_Especialidades\f616cbf3-96a8-4153-b768-94826871475c.pdf))">
+      <SourceType>Package</SourceType>
+      <SourceId>Nupre_API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Nupre_API</BasePath>
+      <RelativePath>Titulacion_Especialidades/f616cbf3-96a8-4153-b768-94826871475c.pdf</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Titulacion_Especialidades\f616cbf3-96a8-4153-b768-94826871475c.pdf))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Titulacion_Especialidades\fe1840c5-a7fc-476e-abf5-95f09e81cb6d.pdf))">
       <SourceType>Package</SourceType>

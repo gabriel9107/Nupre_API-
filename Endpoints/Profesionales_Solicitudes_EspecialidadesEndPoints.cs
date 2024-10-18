@@ -17,7 +17,7 @@ namespace Nupre_API.Endpoints
         {
             group.MapPost("guardarTitulacion", Crear).DisableAntiforgery(); 
             group.MapGet("listadoTitulacion/{solicitud_numero}", obtenerListadoPorSolicitud);
-            group.MapGet("obtenerTitulacionByNumeroSolicitud", obtenerPorId);
+            group.MapGet("obtenerTitulacionByNumeroSolicitud/{solicitud_numero}", obtenerPorId);
             return group;
         }
 
